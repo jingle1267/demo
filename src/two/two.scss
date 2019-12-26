@@ -1,0 +1,100 @@
+$elements: 128;
+$layers: 7;
+body {
+  background: #323133;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+  ul:nth-child(1) {
+    position: absolute;
+    top: calc(20vh - 1.6rem);
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    //background:#FFCE54;
+    transform: translate(-50%, -50%);
+    li {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 0 0.5rem 1rem 0.5rem;
+      border-style: solid;
+      border-color: transparent;
+      border-bottom-color: #ffce54;
+      transform-origin: 0.5rem 1rem;
+      @for $i from 0 through 4 {
+        &:nth-child(#{$i}) {
+          transform: rotate($i * 72deg);
+        }
+      }
+    }
+  }
+  ul:nth-child(2) {
+    padding: 0;
+    li {
+      position: absolute;
+      top: 20vh;
+      right: 50%;
+      width: 0.0625rem;
+      background: linear-gradient(
+        rgba(46, 204, 113, 0),
+        rgba(46, 204, 113, 0.25)
+      );
+      list-style: none;
+      transform-origin: 50% 0;
+      animation: swing 4s ease-in-out infinite;
+
+      @for $i from 1 through $elements {
+        &:nth-child(#{$i}) {
+          height: 60vh * (($i + 4)/ ($elements + 4));
+          //Create gaps with the +4, remove +4 to stack up layers - effectively 4 invisible dots at the top
+          animation-delay: -4s * ($i/($elements/$layers));
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        bottom: 1px;
+        width: 3px;
+        height: 3px;
+      }
+
+      &:nth-child(4n):before {
+        background: #d8334a;
+      }
+      &:nth-child(4n + 1):before {
+        background: #ffce54;
+      }
+      &:nth-child(4n + 2):before {
+        background: #2ecc71;
+      }
+      &:nth-child(4n + 3):before {
+        background: #5d9cec;
+      }
+    }
+  }
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
+  5%,
+  45% {
+    opacity: 0.25;
+  }
+  50%,
+  100%,
+  0% {
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
