@@ -26,6 +26,7 @@ module.exports = {
         windmill: './src/windmill/index.js',
         fontloading: './src/fontloading/index.js',
         tagcloud: './src/tagcloud/index.js',
+        charger: './src/charger/index.js',
         index: './src/index/index.js'
     },
     plugins: [
@@ -61,6 +62,14 @@ module.exports = {
             inject: true,
             hash: true,
             chunks: ['tagcloud']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'charger',
+            template: './src/charger/index.html',
+            filename: 'charger/index.html',
+            inject: true,
+            hash: true,
+            chunks: ['charger']
         }),
         new HtmlWebpackPlugin({
             title: 'index',
