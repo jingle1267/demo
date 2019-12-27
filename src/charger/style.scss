@@ -1,5 +1,13 @@
-// in progress....
-.reset{
+body {
+  overflow: hidden;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.reset {
   opacity: 0;
   position: absolute;
   bottom: 30px;
@@ -7,13 +15,14 @@
   animation: reset 13s forwards;
   background: black;
   border: 0 none;
-  input{
+  input {
     background: black;
     color: white;
     border: 0 none;
   }
 }
-.phone{
+
+.phone {
   --width: 320px;
   --height: 490px;
   margin: auto auto 0 auto;
@@ -21,7 +30,8 @@
   height: var(--height);
   position: relative;
 }
-.text{
+
+.text {
   font-family: sans-serif;
   color: darkgray;
   position: absolute;
@@ -32,7 +42,8 @@
   top: 180px;
   font-size: 17px;
 }
-.status{
+
+.status {
   width: 190px;
   justify-content: center;
   display: flex;
@@ -45,29 +56,31 @@
   margin: auto;
   z-index: 3;
 }
-.progress{
+
+.progress {
   font-size: 3em;
   font-family: sans-serif;
   margin-left: 8px;
   display: flex;
   color: transparent;
-  > small{
+  > small {
     font-size: 18px;
     margin-left: 5px;
     color: white;
   }
-  &::before{
+  &::before {
     content: '99';
     color: white;
     animation: count 12s forwards;
   }
 }
-.charging{
+
+.charging {
   background-color: white;
   width: 11px;
   height: 11px;
   transform: skew(0deg, -45deg) rotate(47deg) scale(.7);
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     border-width: 7px 5px 15px 7px;
@@ -77,7 +90,7 @@
     transform: rotate(5deg) skew(-10deg, -5deg);
     left: -8px;
   }
-  &::after{
+  &::after {
     content: '';
     position: absolute;
     border-width: 7px 5px 15px 7px;
@@ -88,13 +101,15 @@
     left: 6px;
   }
 }
-.contrast{
+
+.contrast {
   width: 100%;
   height: 100%;
   background-color: black;
   filter: contrast(20);
 }
-.blackhole{
+
+.blackhole {
   width: 210px;
   height: 210px;
   filter: blur(10px);
@@ -105,7 +120,7 @@
   left: 0;
   right: 0;
   top: 60px;
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -114,11 +129,10 @@
     border-radius: 45% 55% 43% 57% / 41% 39% 61% 59%;
     box-shadow: -3px -1px 0 15px lime, 0px 3px 0 18px lime;
     transform: rotate(426deg);
-    animation:
-            rotate 20s linear infinite,
-            radius 20s linear infinite;
+    animation: rotate 20s linear infinite,
+    radius 20s linear infinite;
   }
-  &::after{
+  &::after {
     content: '';
     position: absolute;
     background: black;
@@ -127,7 +141,8 @@
     border-radius: 50%;
   }
 }
-.lithium{
+
+.lithium {
   position: absolute;
   z-index: -1;
   bottom: -19px;
@@ -139,10 +154,9 @@
   height: 50px;
   border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
   filter: blur(10px);
-  animation:
-          radius 8s linear infinite;
+  animation: radius 8s linear infinite;
   transform: rotate(-1deg);
-  &::after{
+  &::after {
     content: '';
     border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
     position: absolute;
@@ -151,11 +165,10 @@
     height: 50px;
     bottom: -8px;
     left: -25px;
-    animation:
-            radius 7s linear infinite;
+    animation: radius 7s linear infinite;
     animation-delay: 2s;
   }
-  &::before{
+  &::before {
     content: '';
     position: absolute;
     width: 20px;
@@ -164,12 +177,11 @@
     filter: blur(10px);
     bottom: 0;
     left: 0;
-    animation:
-            lithium 7s forwards infinite,
-            radius 20s linear infinite;
+    animation: lithium 7s forwards infinite,
+    radius 20s linear infinite;
   }
-  i:nth-child(1){
-    &::before{
+  i:nth-child(1) {
+    &::before {
       content: '';
       position: absolute;
       width: 20px;
@@ -178,11 +190,10 @@
       filter: blur(10px);
       bottom: 0;
       left: 10px;
-      animation:
-              lithium 4s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium 4s forwards infinite,
+      radius 10s linear infinite;
     }
-    &::after{
+    &::after {
       content: '';
       position: absolute;
       width: 20px;
@@ -192,14 +203,13 @@
       bottom: 0;
       left: 30px;
       transform: scale(.8);
-      animation:
-              lithium 5s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium 5s forwards infinite,
+      radius 10s linear infinite;
       animation-delay: 1s;
     }
   }
-  i:nth-child(2){
-    &::before{
+  i:nth-child(2) {
+    &::before {
       content: '';
       position: absolute;
       width: 20px;
@@ -208,12 +218,11 @@
       filter: blur(10px);
       bottom: 0;
       left: 20px;
-      animation:
-              lithium 6s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium 6s forwards infinite,
+      radius 10s linear infinite;
       animation-delay: 2s;
     }
-    &::after{
+    &::after {
       content: '';
       position: absolute;
       width: 20px;
@@ -223,14 +232,13 @@
       bottom: 0;
       left: -20px;
       transform: scale(.9);
-      animation:
-              lithium2 7s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium2 7s forwards infinite,
+      radius 10s linear infinite;
       animation-delay: 3s;
     }
   }
-  i:nth-child(3){
-    &::before{
+  i:nth-child(3) {
+    &::before {
       content: '';
       position: absolute;
       width: 20px;
@@ -239,12 +247,11 @@
       filter: blur(10px);
       bottom: 0;
       left: 35px;
-      animation:
-              lithium3 3s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium3 3s forwards infinite,
+      radius 10s linear infinite;
       animation-delay: 4s;
     }
-    &::after{
+    &::after {
       content: '';
       position: absolute;
       width: 20px;
@@ -254,14 +261,13 @@
       bottom: 0;
       left: -20px;
       transform: scale(1.1);
-      animation:
-              lithium3 5s forwards infinite,
-              radius 6s linear infinite;
+      animation: lithium3 5s forwards infinite,
+      radius 6s linear infinite;
       animation-delay: 5s;
     }
   }
-  i:nth-child(4){
-    &::before{
+  i:nth-child(4) {
+    &::before {
       content: '';
       position: absolute;
       width: 20px;
@@ -270,12 +276,11 @@
       filter: blur(10px);
       bottom: 0;
       left: 45px;
-      animation:
-              lithium4 9s forwards infinite,
-              radius 10s linear infinite;
+      animation: lithium4 9s forwards infinite,
+      radius 10s linear infinite;
       animation-delay: 5s;
     }
-    &::after{
+    &::after {
       content: '';
       position: absolute;
       width: 20px;
@@ -285,99 +290,96 @@
       bottom: 0;
       left: -20px;
       transform: scale(1.1);
-      animation:
-              lithium4 9s forwards infinite,
-              radius 6s linear infinite;
+      animation: lithium4 9s forwards infinite,
+      radius 6s linear infinite;
       animation-delay: 6s;
     }
   }
 }
-@keyframes lithium{
-  0%{
-    box-shadow:
-            20px -3vh 0 10px lime;
+
+@keyframes lithium {
+  0% {
+    box-shadow: 20px -3vh 0 10px lime;
   }
-  100%{
-    border-radius:
-            45% 55% 48% 52% / 56% 43% 57% 44%;
-    box-shadow:
-            40px -43vh 0 20px lime;
+  100% {
+    border-radius: 45% 55% 48% 52% / 56% 43% 57% 44%;
+    box-shadow: 40px -43vh 0 20px lime;
     transform: scale(1);
   }
 }
-@keyframes lithium2{
-  0%{
-    box-shadow:
-            10px -5vh 0 10px lime;
+
+@keyframes lithium2 {
+  0% {
+    box-shadow: 10px -5vh 0 10px lime;
   }
-  100%{
-    box-shadow:
-            20px -45vh 0 20px lime;
-  }
-}
-@keyframes lithium3{
-  0%{
-    box-shadow:
-            9px -7vh 0 6px lime;
-  }
-  100%{
-    box-shadow:
-            14px -45vh 0 15px lime;
+  100% {
+    box-shadow: 20px -45vh 0 20px lime;
   }
 }
-@keyframes lithium4{
-  0%{
-    box-shadow:
-            9px -7vh 0 7px lime;
+
+@keyframes lithium3 {
+  0% {
+    box-shadow: 9px -7vh 0 6px lime;
   }
-  100%{
-    box-shadow:
-            14px -45vh 0 14px lime;
+  100% {
+    box-shadow: 14px -45vh 0 15px lime;
   }
 }
-@keyframes rotate{
-  from{
+
+@keyframes lithium4 {
+  0% {
+    box-shadow: 9px -7vh 0 7px lime;
+  }
+  100% {
+    box-shadow: 14px -45vh 0 14px lime;
+  }
+}
+
+@keyframes rotate {
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
-@keyframes radius{
-  0%{
+
+@keyframes radius {
+  0% {
     border-radius: 45% 55% 43% 57% / 41% 39% 61% 59%;
   }
-  15%{
+  15% {
     border-radius: 50% 50% 48% 52% / 55% 39% 61% 45%;
   }
-  25%{
+  25% {
     border-radius: 45% 55% 39% 61% / 55% 30% 70% 45%;
   }
-  50%{
-    border-radius: 45% 55% 28% 72% / 56% 61% 39% 44% ;
+  50% {
+    border-radius: 45% 55% 28% 72% / 56% 61% 39% 44%;
   }
-  80%{
+  80% {
     border-radius: 73% 27% 28% 72% / 74% 61% 39% 26%;
   }
-  100%{
+  100% {
     border-radius: 45% 55% 43% 57% / 41% 39% 61% 59%;
   }
 }
 
-@keyframes count{
+@keyframes count {
   @for $i from 0 through 99 {
     #{$i * 1%} {
       content: '#{$i * 1}';
     }
   }
 }
-@keyframes reset{
-  99%{
+
+@keyframes reset {
+  99% {
     opacity: 0;
     z-index: -1;
     pointer-events: none;
   }
-  to{
+  to {
     opacity: 1;
     z-index: 1;
     pointer-events: inherit;
