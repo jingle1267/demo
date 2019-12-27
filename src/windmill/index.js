@@ -16,7 +16,4 @@
             ,:i11:  :
 */
 
-import './two.scss'
-import pug from './two.pug'
-
-document.body.innerHTML = pug
+import './style.scss'

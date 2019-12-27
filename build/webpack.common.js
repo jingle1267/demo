@@ -23,7 +23,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     entry: {
         ChristmasTree: './src/ChristmasTree/index.js',
-        two: './src/two/index.js',
+        windmill: './src/windmill/index.js',
         index: './src/index/index.js'
     },
     plugins: [
@@ -37,12 +37,12 @@ module.exports = {
             chunks: ['ChristmasTree']
         }),
         new HtmlWebpackPlugin({
-            title: 'two',
-            template: './src/two/index.html',
-            filename: 'two/index.html',
+            title: 'windmill',
+            template: './src/windmill/index.html',
+            filename: 'windmill/index.html',
             inject: true,
             hash: true,
-            chunks: ['two']
+            chunks: ['windmill']
         }),
         new HtmlWebpackPlugin({
             title: 'index',

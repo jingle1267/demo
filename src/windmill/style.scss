@@ -1,0 +1,452 @@
+$background-color: #292f4c;
+
+// sky gradients
+$sky-grad-start-color: #4d4d83;
+$sky-grad-center-color: #ae6569;
+$sky-grad-end-color: #c76961;
+
+// sun gradients
+$sun-grad-start-color: #ffc673;
+$sun-grad-end-color: #ff653c;
+
+$shadow-color: #292f4c;
+
+$light-color: #ffed60;
+$light-base-color: #ffb73c;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $background-color;
+}
+.canvas {
+  height: 340px;
+  width: 340px;
+  border: 10px solid lighten($background-color, 10%);
+  border-radius: 50%;
+  margin: 10% auto;
+  position: relative;
+  background: linear-gradient(
+                  to bottom,
+                  $sky-grad-start-color 0%,
+                  $sky-grad-end-color 246px,
+                  $shadow-color 0%
+  );
+  overflow: hidden;
+}
+.sun {
+  position: absolute;
+  height: 112px;
+  width: 112px;
+  background: linear-gradient(
+                  to bottom,
+                  $sun-grad-start-color 0%,
+                  $sun-grad-end-color 100%
+  );
+  left: 36px;
+  top: 70px;
+  border-radius: 50%;
+}
+.forest {
+  bottom: -8px;
+  position: absolute;
+}
+.tree {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 48px solid $shadow-color;
+  position: absolute;
+  bottom: 80px;
+  &.tree1 {
+    left: 22px;
+    bottom: 70px;
+  }
+  &.tree2 {
+    left: 42px;
+  }
+  &.tree3 {
+    bottom: 62px;
+    left: 60px;
+  }
+  &.tree4 {
+    left: 74px;
+    bottom: 64px;
+  }
+  &.tree5 {
+    left: 90px;
+    bottom: 72px;
+  }
+  &.tree6 {
+    left: 120px;
+  }
+  &.tree7 {
+    left: 140px;
+  }
+  &.tree8 {
+    left: 160px;
+  }
+  &.tree9 {
+    left: 190px;
+  }
+  &.tree10 {
+    left: 205px;
+    bottom:60px;
+  }
+  &.tree11 {
+    left: 220px;
+    bottom:70px;
+  }
+  &.tree12 {
+
+    bottom:80px;
+    left: 240px;
+  }
+  &.tree13 {
+    left: 260px;
+    bottom:70px;
+  }
+  &.tree14 {
+    left: 280px;
+    bottom:60px;
+  }
+}
+.floors {
+  height: 100px;
+  width: 74px;
+  background: $shadow-color;
+  left: 10%;
+  position: absolute;
+  bottom: 80px;
+  &:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 100px solid $shadow-color;
+    left: -11px;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 100px solid $shadow-color;
+    right: -11px;
+    bottom: 0;
+  }
+}
+.roof {
+  border-left: 48px solid transparent;
+  border-right: 48px solid transparent;
+  border-bottom: 48px solid $shadow-color;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 180px;
+  left: -10px;
+}
+
+.house {
+  position: absolute;
+  bottom: -10px;
+  left: 122px;
+}
+.door {
+  height: 32px;
+  width: 24px;
+  background: linear-gradient(
+                  to bottom,
+                  $light-color 0%,
+                  $light-base-color 100%
+  );
+  border-radius: 12px 12px 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  box-shadow: 0 0px 15px $light-color;
+}
+
+.light {
+  height: 12px;
+  width: 12px;
+  background: linear-gradient(
+                  to bottom,
+                  $light-color 0%,
+                  $light-base-color 100%
+  );
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  &:before {
+    content: "";
+    height: 36px;
+    width: 12px;
+    background: linear-gradient(
+                    to bottom,
+                    #ffed6000 0%,
+                    #ffb73c 50%,
+                    #ffed6000 100%
+    );
+    position: absolute;
+    top: -12px;
+    opacity: 0.3;
+  }
+  &:after {
+    content: "";
+    height: 36px;
+    width: 12px;
+    background: linear-gradient(
+                    to bottom,
+                    #ffed6000 0%,
+                    #ffb73c 50%,
+                    #ffed6000 100%
+    );
+    position: absolute;
+    top: -12px;
+    opacity: 0.3;
+    transform:rotate(90deg);
+  }
+}
+.fan-wing{
+  width:100px;
+  height:24px;
+  border-bottom:8px solid $shadow-color;
+  position:relative;
+  .fan-comb{
+    width:64px;
+    height:inherit;
+    border:4px solid $shadow-color;
+    ul li{
+      border-right:4px solid $shadow-color;
+      display:inline;
+      margin-left: 3.4px;
+    }
+  }
+
+  &.fan-1{
+    left:0;
+  }
+  &.fan-2{
+    transform:rotate(90deg);
+    transform-origin: 112px 12px;
+  }
+  &.fan-3{transform:rotate(180deg);
+    transform-origin: 100px 0px;}
+  left:0;
+  &.fan-4{transform:rotate(270deg);
+    transform-origin: 64px -12px;}
+  left:0;
+}
+
+.windmill{
+  position: absolute;
+  top: -216px;
+  z-index: 8;
+  left: -65px;
+  animation:rotatemill 10s infinite linear;
+  transform-origin:105px 25px;
+}
+
+@keyframes rotatemill{
+  0%{
+
+  }
+  100%{
+    transform:rotate(360deg);
+
+  }
+}
+
+.star{
+  background: white;
+  height: 2px;
+  width: 2px;
+  position: absolute;
+  left: 100px;
+  top: 20px;
+  border-radius: 25%;
+  // animation:startwinkle 5s infinite linear;
+  opacity:0.5;
+  &.star-1{
+    left:150px;
+  }
+  &.star-2{
+    left: 170px;
+    top: 60px;
+  }
+
+  &.star-3{
+    left:130px;
+    top:80px;
+  }
+  &.star-4{
+    left:90px;
+    top:80px;
+  }
+  &.star-5{
+    left:179px;
+    top:90px;
+  }
+  &.star-6{
+    left:136px;
+    top:97px;
+  }
+  &.star-7{
+    left:150px;
+    top:97px;
+  }
+  &.star-8{
+    left:200px;
+    top:95px;
+  }
+  &.star-9{
+    left:260px;
+    top:95px;
+  }
+  &.star-10{
+    left:37px;
+    top:100px;
+  }
+  &.star-11{
+    left:35px;
+    top:80px;
+  }
+  &.star-12{
+    left:25px;
+    top:90px;
+  }
+  &.star-13{
+    left:25px;
+    top:135px;
+  }
+  &.star-14{
+    left:25px;
+    top:118px;
+  }
+  &.star-15{
+    left:10px;
+    top:123px;
+  }
+  &.star-16{
+    left:135px;
+    top:23px;
+  }
+  &.star-17{
+    left:140px;
+    top:10px;
+  }
+
+  &.star-18{
+    left:200px;
+    top:36px;
+  }
+  &.star-19{
+    left:215px;
+    top:37px;
+  }
+  &.star-20{
+    left:219px;
+    top:30px;
+  }
+  &.star-21{
+    left:230px;
+    top:80px;
+  }
+  &.star-22{
+    left:230px;
+    top:150px;
+  }
+  &.star-23{
+    left:226px;
+    top:158px;
+  }
+  &.star-24{
+    left:250px;
+    top:136px;
+  }
+  &.star-25{
+    left:273px;
+    top:123px;
+  }
+  &.star-26{
+    left:298px;
+    top:93px;
+  }
+  &.star-27{
+    left:296px;
+    top:136px;
+  }
+  &.star-28{
+    left:279px;
+    top:150px;
+  }
+  &.star-29{
+    left:85px;
+    top:29px;
+  }
+  &.star-30{
+    left:83px;
+    top:46px;
+  }
+}
+
+
+.opacity-half{
+  opacity:0.5;
+}
+
+
+.opacity-quarter{
+  opacity:0.25;
+}
+
+.shooting-star{
+  height:3px;
+  width:3px;
+  background: #ffffff3b;
+  top: 30px;
+  position: absolute;
+  right: 40px;
+  border-radius: 2px 0 0 2px;
+  transform:translate(0px , 0px) rotate(-45deg);
+  // animation:shootingstar 0.5s infinite 10s linear;
+  &:before{
+    content: "";
+    height: 0;
+    width: 0;
+    border-top: 1px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 130px solid #ffffff3b;
+    left: 3px;
+    position: absolute;
+  }
+}
+
+@keyframes shootingstar{
+  0%{transform:translate(0px , 0px) rotate(-45deg);}
+  100%{
+    transform:translate(-300px, 300px) rotate(-45deg);
+  }
+}
+@keyframes startwinkle{
+  0%{
+    opacity:0.25;
+  }
+  50%{
+    opacity:0.5;
+  }
+  100%{
+    opacity:0.25;
+  }
+}
