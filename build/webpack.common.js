@@ -24,7 +24,7 @@ module.exports = {
     entry: {
         ChristmasTree: './src/ChristmasTree/index.js',
         two: './src/two/index.js',
-        index: './src/index.js'
+        index: './src/index/index.js'
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -34,7 +34,7 @@ module.exports = {
             filename: 'ChristmasTree/index.html',
             inject: true,
             hash: true,
-            chunks:['ChristmasTree']
+            chunks: ['ChristmasTree']
         }),
         new HtmlWebpackPlugin({
             title: 'two',
@@ -46,11 +46,11 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'index',
-            template: './src/index.html',
+            template: './src/index/index.html',
             filename: 'index.html',
             inject: true,
             hash: true,
-            chunks:['index']
+            chunks: ['index']
         })
 
     ],
@@ -63,6 +63,17 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: ['html-loader', 'pug-html-loader']
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(gif|jpg|jpeg|png|svg)$/,
+                use: ['url-loader']
             },
             {
                 test: /\.scss$/,

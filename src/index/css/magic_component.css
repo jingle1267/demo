@@ -1,0 +1,10 @@
+/* Header */
+.large-header {
+    width: 100%;
+    /*background: #333;*/
+    background: #E1F3Fd;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+}

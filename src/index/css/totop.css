@@ -1,0 +1,243 @@
+/* 公共样式表css */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    border: 0;
+}
+
+body {
+    background: #fff;
+    color: #666;
+    font: 12px/150% Arial,Verdana, "microsoft yahei";
+}
+
+a {
+    text-decoration: none;
+    color: #08acee;
+}
+
+button {
+    outline: 0;
+}
+
+img {
+    border: 0;
+}
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #666;
+}
+
+a:hover {
+    color: #eee;
+}
+
+.clearfix::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+}
+
+/* 必要布局样式css */
+.suspension {
+    width: 46px;
+    height: 100px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+}
+
+.suspension .consult {
+    background-image: url(../images/top-icon.png);
+    background-repeat: no-repeat;
+    background-position: center -1px;
+    background-color: #0af;
+    display: block;
+    position: relative;
+    width: 46px;
+    height: 46px;
+}
+
+.suspension .consult .suspension-list {
+    position: absolute;
+    width: 240px;
+    right: -29px;
+    top: -230px;
+    z-index: 30;
+    display: none;
+}
+
+.suspension-list-content {
+    position: absolute;
+    width: 240px;
+    right: 85px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.15);
+}
+
+.suspension-list ul {
+    margin: 32px 24px;
+}
+
+.suspension-list ul li {
+    position: relative;
+    display: list-item;
+    width: 100%;
+    height: auto;
+    padding: 16px 0;
+    margin-top: 10px;
+    overflow: hidden;
+    border-top: 1px solid #f4f4f4;
+}
+
+.suspension-list ul li:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.suspension-list ul .suspension-list-bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.suspension-list-bottom .info-value {
+    font-size: 12px;
+    font-weight: inherit;
+    color: #999;
+}
+
+.suspension-list ul li:first-child {
+    margin-top: 0;
+}
+
+.service-phone, .service-qq, .service-proposal {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.service-phone {
+    /*background-image: url(../images/suspend_icon_01.png);*/
+}
+
+.service-phone:hover {
+    /*background-image: url(../images/suspend_icon_01_blue.png)*/
+}
+
+.service-qq {
+    /*background-image: url(../images/suspend_icon_03.png);*/
+}
+
+.service-qq:hover {
+    /*background-image: url(../images/suspend_icon_03_blue.png);*/
+}
+
+.service-proposal {
+    /*background-image: url(../images/suspend_icon_02.png);*/
+}
+
+.service-proposal:hover {
+    /*background-image: url(../images/suspend_icon_02_blue.png)*/
+}
+
+.info-name {
+    display: block;
+    padding-left: 52px;
+    height: 14px;
+    font-size: 14px;
+    color: #333;
+}
+
+.info-value {
+    display: block;
+    padding-left: 52px;
+    margin-top: 8px;
+    height: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f90;
+}
+
+.suspension a.consult:hover .suspension-list {
+    display: inline !important;
+}
+
+.suspension .cart {
+    background-image: url(../images/top-icon.png);
+    display: block;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-top: 10px;
+    border: 1px solid #bcbcbc;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.suspension a.cart:hover .pic {
+    display: block;
+}
+
+.suspension .back-top {
+    background-image: url(../images/top-icon.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: block;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #bcbcbc;
+    background-color: #fff;
+    -webkit-transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
+    margin-top: 10px;
+}
+
+.suspension .cart .pic {
+    display: none;
+    position: absolute;
+    left: -139px;
+    top: -120px;
+    width: 139px;
+    height: 163px;
+}
+
+.pic-content {
+    position: absolute;
+    width: 139px;
+    height: 139px;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.15);
+    right: 10px;
+}
