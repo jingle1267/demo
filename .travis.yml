@@ -1,16 +1,33 @@
 language: node_js
 node_js:
 - 12.10.0
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+before_script:
+
 script:
-- git config --global user.email "${EMAIL}"
-- git config --global user.name "${NAME}"
-- git config --global push.default simple
-- git remote add upstream "https://${GH_TOKEN}@github.com/${GH_NAME}"
-- git fetch upstream
-- git reset upstream/gh-pages
-- npm install
-- npm run build
-- ls
-- git add -A .
-- git commit -m "update from travis"
-- git push -q upstream HEAD:gh-pages
+  - npm run build
+
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "${NAME}"
+  - git config user.email "${EMAIL}"
+  - git add .
+  - git commit -m "update from travis"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_NAME}" master:gh-pages
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+env:
+ global:
+
