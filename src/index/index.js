@@ -29,65 +29,39 @@ import './js/init.js'
 
 async function conponent() {
     let ul = document.body.getElementsByTagName('ul')[0];
-    console.log('======');
-    console.log(ul);
-    //
-    // let ul = document.createElement('ul');
     const context = require.context('../../src', true, /.*/);
-    context.keys().forEach(item => {
+    let key_list = context.keys();
+    console.log('======', key_list.length);
+    for (let i = 0; i < key_list.length; i++) {
+        let item = key_list[i];
+
         let folder = item.replace('./', '');
 
         if (folder === '') {
-            return;
+            continue;
         }
         if (folder.indexOf('/') !== -1) {
-            return;
+            continue;
         }
         // 生成的文件名称中不能包含小数点
         if (folder.indexOf('.') !== -1) {
-            return;
+            continue;
         }
         if (folder.indexOf('index') !== -1) {
-            return;
+            continue;
         }
-        console.log('=== ', folder);
         let li = document.createElement('li');
-        li.setAttribute('style', getLiStyle(-1))
+        li.setAttribute('style', getLiStyle(i))
         li.innerHTML = "<a href='" + item + "'>" + folder + "</a>";
         ul.appendChild(li);
-
-    });
+    }
 
     return ul;
-
-    // var element = document.createElement('div');
-    // var btn = document.createElement('button');
-    // var element = document.createElement('pre');
-    //
-    // // Lodash, now imported by this script
-    // // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    // // element.classList.add('hello');
-    //
-    // element.innerHTML = [
-    //     'Hello webpack!',
-    //     '5 cubed is equal to ' + cube(5),
-    //     ' '
-    // ].join('\n\n');
-    //
-    // btn.innerHTML = 'Click me and check the console!';
-    // btn.onclick = printMe;
-    // element.appendChild(btn);
-    //
-    // // 将图像添加到我们现有的 div。
-    // // var myIcon = new Image();
-    // // myIcon.src = Icon;
-    // // element.appendChild(myIcon);
-    //
-    // element.classList.add('hello');
-    // return element;
-    // // return;
 }
 
+/*
+ * 获取 li 样式
+ */
 function getLiStyle(position) {
     if (position === -1) {
         position = Math.round(Math.random() * 20);
@@ -116,14 +90,3 @@ conponent().then(component => {
     // document.body.appendChild(component);
 })
 
-
-// Import styles
-// import style from "./ChristmasTree/style.scss"
-// Import scripts
-// import script from "./scripts/plugin.js"
-// console.log('all files loaded');
-
-// import './ChristmasTree/tree.scss'
-// import pug from './ChristmasTree/tree.pug'
-//
-// document.body.innerHTML = pug
