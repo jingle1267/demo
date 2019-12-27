@@ -31,7 +31,6 @@ async function conponent() {
     let ul = document.body.getElementsByTagName('ul')[0];
     const context = require.context('../../src', true, /.*/);
     let key_list = context.keys();
-    console.log('======', key_list.length);
     for (let i = 0; i < key_list.length; i++) {
         let item = key_list[i];
 

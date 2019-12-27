@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- 12.10.0
+script:
+- git config --global user.email "${EMAIL}"
+- git config --global user.name "${NAME}"
+- git config --global push.default simple
+- git remote add upstream "https://${GH_TOKEN}@github.com/${GH_NAME}"
+- git fetch upstream
+- git reset upstream/gh-pages
+- npm install
+- npm run build
+- ls
+- git add -A .
+- git commit -m "update from travis"
+- git push -q upstream HEAD:gh-pages
