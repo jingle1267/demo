@@ -24,6 +24,7 @@ module.exports = {
     entry: {
         ChristmasTree: './src/ChristmasTree/index.js',
         windmill: './src/windmill/index.js',
+        fontloading: './src/fontloading/index.js',
         index: './src/index/index.js'
     },
     plugins: [
@@ -43,6 +44,14 @@ module.exports = {
             inject: true,
             hash: true,
             chunks: ['windmill']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'fontloading',
+            template: './src/fontloading/index.html',
+            filename: 'fontloading/index.html',
+            inject: true,
+            hash: true,
+            chunks: ['fontloading']
         }),
         new HtmlWebpackPlugin({
             title: 'index',

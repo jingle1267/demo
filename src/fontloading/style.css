@@ -1,0 +1,50 @@
+
+body {
+  background: var( --background-col );
+  padding: 0;
+  margin:0;
+  min-height:100vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  --foreground-col: #fff;
+  --background-col: #000;
+}
+body.invert {
+  --foreground-col: #000;
+  --background-col: #fff;
+}
+button {
+  position: absolute;
+  top: 10px;
+  right:10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+svg {
+  width: 50vw;
+
+}
+#outline {
+  fill:none;
+  stroke: var( --foreground-col );
+  stroke-width: .1px;
+}
+#load {
+  fill: var( --foreground-col );
+  stroke-width: 0px;
+  animation: loading 6s linear infinite;
+}
+#mask {
+  fill: var( --background-col );
+  stroke-width: 0px;
+}
+@keyframes loading {
+  from {
+    y: 11.5px;
+  }
+  to {
+    y: -6px;
+  }
+}
