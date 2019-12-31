@@ -35,3 +35,5 @@ if (!isPC()) {
 }
 
 jQuery('#qrcode').qrcode({width: 139, height: 139, text: window.location.href});
+
+document.getElementsByClassName('navcontainer')[0].style.width=document.body.clientWidth + 'px';

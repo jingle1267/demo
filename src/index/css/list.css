@@ -43,6 +43,10 @@ h1 {
     margin: 0.67em 0;
 }
 
+.navcontainer {
+    position: relative; padding-top: 58px; padding-bottom: 14px;
+}
+
 .navlist {
     text-align: center;
     margin: 0 auto;

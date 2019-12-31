@@ -16,11 +16,11 @@
             ,:i11:  :
 */
 
-import './css/list.css'
-import './css/magic_component.css'
-import './css/magic_normalize.css'
 import './css/marx.min.css'
 import './css/totop.css'
+import './css/magic_component.css'
+import './css/magic_normalize.css'
+import './css/list.css'
 
 import './js/jquery.js'
 import './js/jquery.qrcode.min.js'
@@ -46,7 +46,11 @@ async function conponent() {
         if (folder.indexOf('.') !== -1) {
             continue;
         }
+        console.log('folder:', folder)
         if (folder.indexOf('index') !== -1) {
+            continue;
+        }
+        if (folder === 'template') {
             continue;
         }
         let li = document.createElement('li');

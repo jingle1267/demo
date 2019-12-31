@@ -20,19 +20,22 @@ const path = require('path');
 const glob = require("glob");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const htmls = glob.sync('./src/**/*.html');
 const entrys = {};
 const htmlCfgs = [];
+htmlCfgs.push(new ExtractTextPlugin("style.css"));
 htmls.forEach((filePath) => {
     // 分割路径, ['src', 'components', 'index.html'], 放进 path 数组里
     let path = filePath.split('/');
     let chunk = path[2];
-    if (filePath.startsWith('./src/') && filePath.endsWith('/index.html')) {
+    console.log('filePath', filePath);
+    if (filePath.startsWith('./src/') && filePath.endsWith('/index.html') && !filePath.endsWith('./src/template.html')) {
+        console.log('chunk:', chunk);
         // 动态配置入口文件路径
-        entrys[chunk] = './src/' + chunk + '/index.js';
         // console.log('template:', filePath);
-        // console.log('chunk:', chunk);
+        entrys[chunk] = './src/' + chunk + '/index.js';
         let filename = chunk + '/index.html';
         // 目录页面特殊处理
         if (chunk === 'index') {
@@ -127,10 +130,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                use: ExtractTextPlugin.extract({
+
+                    fallback: "style-loader",
+
+                    use: "css-loader"
+
+                })
             },
             {
                 test: /\.(gif|jpg|jpeg|png|svg)$/,
@@ -145,13 +151,19 @@ module.exports = {
                 }, {
                     loader: "sass-loader" // 将 Sass 编译成 CSS
                 }]
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader'
+                }
             }
         ]
     }
 };
 
-const entry = glob
-    .sync("src/**/*.js")
-    .reduce((acc, curr) => {
-        return {...acc, [path.basename(curr, ".js")]: curr}
-    })
+// const entry = glob
+//     .sync("src/**/*.js")
+//     .reduce((acc, curr) => {
+//         return {...acc, [path.basename(curr, ".js")]: curr}
+//     })
