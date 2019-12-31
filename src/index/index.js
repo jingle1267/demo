@@ -46,7 +46,7 @@ async function conponent() {
         if (folder.indexOf('.') !== -1) {
             continue;
         }
-        console.log('folder:', folder)
+        console.log('folder:', folder);
         if (folder.indexOf('index') !== -1) {
             continue;
         }
@@ -54,7 +54,7 @@ async function conponent() {
             continue;
         }
         let li = document.createElement('li');
-        li.setAttribute('style', getLiStyle(i))
+        li.setAttribute('style', getLiStyle(i));
         li.innerHTML = "<a href='" + item + "'>" + folder + "</a>";
         ul.appendChild(li);
     }

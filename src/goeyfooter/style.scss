@@ -3,12 +3,13 @@ body {
   grid-template-rows: 1fr auto;
   grid-template-areas: "main" "footer";
   overflow-x: hidden;
-  background: #F5F7FA;
+  background: #f5f7fa;
   min-height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
   .footer {
     z-index: 1;
-    --footer-background: #ED5565;
+    --footer-background: #ed5565;
     display: grid;
     position: relative;
     grid-area: footer;
@@ -26,16 +27,59 @@ body {
         left: var(--position, 50%);
         background: var(--footer-background);
         border-radius: 100%;
-        animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
-        bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+        animation: bubble-size var(--time, 4s) ease-in infinite
+        var(--delay, 0s),
+        bubble-move var(--time, 4s) ease-in infinite
+        var(--delay, 0s);
         transform: translate(-50%, 100%);
+      }
+    }
+    .content {
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 4rem;
+      padding: 2rem;
+      width: 100%;
+      background: var(--footer-background);
+      a,
+      p {
+        color: #f5f7fa;
+        text-decoration: none;
+      }
+      b {
+        color: white;
+      }
+      p {
+        margin: 0;
+        font-size: 0.75rem;
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        > div {
+          margin: 0.25rem 0;
+          > * {
+            margin-right: 0.5rem;
+          }
+        }
+        .image {
+          align-self: center;
+          width: 4rem;
+          height: 4rem;
+          margin: 0.25rem 0;
+          background-size: cover;
+          background-position: center;
+        }
       }
     }
   }
 }
 
 @keyframes bubble-size {
-  0%, 75% {
+  0%,
+  75% {
     width: var(--size, 4rem);
     height: var(--size, 4rem);
   }
@@ -44,7 +88,6 @@ body {
     height: 0rem;
   }
 }
-
 @keyframes bubble-move {
   0% {
     bottom: -4rem;
