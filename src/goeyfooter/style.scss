@@ -4,8 +4,9 @@ body {
   grid-template-areas: "main" "footer";
   overflow-x: hidden;
   background: #f5f7fa;
-  min-height: 100vh;
+  min-height: 110vh;
   margin: 0;
+  padding: 0;
   font-family: "Open Sans", sans-serif;
   .footer {
     z-index: 1;
@@ -40,7 +41,7 @@ body {
       grid-template-columns: 1fr auto;
       grid-gap: 4rem;
       padding: 2rem;
-      width: 100%;
+      width: 103%;
       background: var(--footer-background);
       a,
       p {
