@@ -1,0 +1,32 @@
+body {
+  background: black;
+  color: white;
+  font: 3vw/1.2 'sans-serif', serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 55vw;
+  margin: 0 auto;
+  min-height: 100vh;
+  perspective: 200px;
+  animation: perspective 3s cubic-bezier(.35,.06,.92,.03) infinite;
+
+  @keyframes perspective {
+    0% { perspective: 100px; transform: scale(.5); }
+    100% { perspective: 10000px; transform: scale(1);	}
+  }
+}
+
+p {
+  transform-style: preserve-3d;
+}
+
+span {
+  display: inline-block;
+
+  @for $i from 1 through 70 {
+    &:nth-child(#{$i}) {
+      transform: translateZ((random() * -1000px));
+    }
+  }
+}
