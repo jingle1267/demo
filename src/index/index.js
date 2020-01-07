@@ -22,7 +22,7 @@ import './css/magic_component.css'
 import './css/magic_normalize.css'
 import './css/list.css'
 
-import './js/jquery.js'
+import './js/jquery.min.js'
 import './js/jquery.qrcode.min.js'
 import './js/magic_bg.js'
 import './js/init.js'

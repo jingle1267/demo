@@ -20,12 +20,13 @@ const path = require('path');
 const glob = require("glob");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const htmls = glob.sync('./src/**/*.html');
 const entrys = {};
-const htmlCfgs = [];
-htmlCfgs.push(new ExtractTextPlugin("style.css"));
+const pluginsArray = [];
+// pluginsArray.push(new ExtractTextPlugin("style.css"));
+// pluginsArray.push(new ExtractTextPlugin());
 htmls.forEach((filePath) => {
     // 分割路径, ['src', 'components', 'index.html'], 放进 path 数组里
     let path = filePath.split('/');
@@ -42,7 +43,7 @@ htmls.forEach((filePath) => {
             filename = 'index.html'
         }
         // 动态配置入口文件插件
-        htmlCfgs.push(
+        pluginsArray.push(
             new HtmlWebpackPlugin({
                 title: chunk,
                 template: filePath,
@@ -55,69 +56,11 @@ htmls.forEach((filePath) => {
     }
 });
 // 最后把要使用的插件放进去
-htmlCfgs.push(new CleanWebpackPlugin());
+pluginsArray.push(new CleanWebpackPlugin());
 
 module.exports = {
-    entry: entrys/*{
-        ChristmasTree: './src/ChristmasTree/index.js',
-        windmill: './src/windmill/index.js',
-        fontloading: './src/fontloading/index.js',
-        tagcloud: './src/tagcloud/index.js',
-        charger: './src/charger/index.js',
-        index: './src/index/index.js'
-    }*/,
-    plugins: htmlCfgs/*[
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'ChristmasTree',
-            template: './src/ChristmasTree/index.html',
-            filename: 'ChristmasTree/index.html',
-            inject: true,
-            hash: true,
-            chunks: ['ChristmasTree']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'windmill',
-            template: './src/windmill/index.html',
-            filename: 'windmill/index.html',
-            inject: true,
-            hash: true,
-            chunks: ['windmill']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'fontloading',
-            template: './src/fontloading/index.html',
-            filename: 'fontloading/index.html',
-            inject: true,
-            hash: true,
-            chunks: ['fontloading']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'tagcloud',
-            template: './src/tagcloud/index.html',
-            filename: 'tagcloud/index.html',
-            inject: true,
-            hash: true,
-            chunks: ['tagcloud']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'charger',
-            template: './src/charger/index.html',
-            filename: 'charger/index.html',
-            inject: true,
-            hash: true,
-            chunks: ['charger']
-        }),
-        new HtmlWebpackPlugin({
-            title: 'index',
-            template: './src/index/index.html',
-            filename: 'index.html',
-            inject: true,
-            hash: true,
-            chunks: ['index']
-        })
-
-    ]*/,
+    entry: entrys,
+    plugins: pluginsArray,
     output: {
         filename: '[name]/[name].bundle.[hash].js',
         path: path.resolve(__dirname, '..', 'dist')
@@ -130,13 +73,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-
-                    fallback: "style-loader",
-
-                    use: "css-loader"
-
-                })
+                use: ["style-loader", "css-loader"]
             },
             {
                 test: /\.(gif|jpg|jpeg|png|svg)$/,
@@ -161,9 +98,3 @@ module.exports = {
         ]
     }
 };
-
-// const entry = glob
-//     .sync("src/**/*.js")
-//     .reduce((acc, curr) => {
-//         return {...acc, [path.basename(curr, ".js")]: curr}
-//     })
