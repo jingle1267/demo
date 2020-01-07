@@ -91,7 +91,17 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "less-loader",
+                    options: {
+                        javascriptEnabled: true,
+                        paths:[path.resolve(__dirname, '../node_modules/lesshat/')]
+                    }
+                }]
             },
             {
                 test: /\.(html)$/,

@@ -29,6 +29,7 @@
   "dependencies": {
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "lesshat": "^4.1.0",
     "lodash": "^4.17.15",
     "uglifyjs-webpack-plugin": "^1.3.0"
   },
