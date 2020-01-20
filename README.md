@@ -15,4 +15,5 @@
 11. 雪人动效 https://94275.cn/demo/snowman/
 12. 英文词云 https://94275.cn/demo/tagcloud/
 13. 大风车 https://94275.cn/demo/windmill/
+14. 下雪 https://94275.cn/demo/snow/
 
