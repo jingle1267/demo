@@ -20,5 +20,6 @@
 | 14 | 下雪 | https://94275.cn/demo/snow/ |
 | 15 | 模拟地球 | https://94275.cn/demo/globe/ |
 | 16 | 滚动视差 | https://94275.cn/demo/scrollimg/ |
-
+| 17 | 图片切换炫酷效果 | https://94275.cn/demo/imagetranstion/ |
+| 18 | 网页显示浏览进度 | https://94275.cn/demo/scrollindicator/ |
 
