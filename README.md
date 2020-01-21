@@ -19,5 +19,6 @@
 | 13 | 大风车 | https://94275.cn/demo/windmill/ |
 | 14 | 下雪 | https://94275.cn/demo/snow/ |
 | 15 | 模拟地球 | https://94275.cn/demo/globe/ |
+| 16 | 滚动视差 | https://94275.cn/demo/scrollimg/ |
 
 

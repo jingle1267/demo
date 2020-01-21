@@ -1,0 +1,35 @@
+$img1: './img/0034034859692813_b.jpg';
+
+$img2: './img/210000f8e772d7fc0758e67ae4b48807.jpg';
+
+$img3: './img/photo-1440688807730-73e4e2169fb8.jpeg';
+
+section {
+    height: 100vh; 
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 20vh;
+}
+
+.g-img1 {
+    background-image: url($img1);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.g-img2 {
+    background-image: url($img2);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.g-img3 {
+    background-image: url($img3);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
