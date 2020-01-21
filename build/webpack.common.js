@@ -76,11 +76,11 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             // {
-            //     test: /\.(gif|jpg|jpeg|png|svg)$/,
+            //     test: /\.svg$/,
             //     use: ['url-loader']
             // },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
                 loader: 'file-loader',
                 options: {
                     name: 'images/[name].[ext]'
