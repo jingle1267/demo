@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500|Roboto+Mono:500);
+@import "third";
+
+html {
+  background-color: #b0bec5;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  padding: 1em;
+}
+
+.material-color-picker {
+  display: flex;
+  width: 32em;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid #78909c;
+  border-radius: 0.5em;
+  box-shadow: 0 1em 8em rgba(black, 0.35);
+
+  &__left-panel {
+    z-index: 1;
+  }
+
+  &__right-panel {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+}
+
+.color-selector { // this whole chunk could be done better/smarter
+  @include list-reset;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+  border-right: 0.25em solid #E0E0E0;
+
+  input[type='radio'] {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0.75em;
+      background-color: currentColor;
+      border-radius: 50%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      padding: 0.5em;
+      border: 0.25em solid;
+      border-radius: 50%;
+
+      transition: padding 250ms;
+    }
+  }
+
+  input[type='radio']:checked + label:after {
+    padding: 1em;
+  }
+} // end sucky chunk
+
+.color-palette-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  //transition: transform 250ms;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+
+  &.js-active {
+    transform: translateX(0);
+  }
+}
+
+.color-palette-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 1em;
+  font-weight: 400;
+  color: #757575;
+}
+
+.color-palette {
+  @include list-reset;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    margin: 0.25em 0;
+    padding: 0 1em;
+    border-radius: 0.25em;
+    font-family: "Roboto Mono", monospace;
+
+    transition: transform 250ms;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.copied-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  transition: all 250ms;
+
+  &.js-copied {
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+  }
+}

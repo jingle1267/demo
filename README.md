@@ -23,4 +23,11 @@
 | 17 | 图片切换炫酷效果 | https://94275.cn/demo/imagetranstion/ |
 | 18 | 网页显示浏览进度 | https://94275.cn/demo/scrollindicator/ |
 | 19 | Cool Layout | https://94275.cn/demo/coollayout/ |
+| 20 | 代码编辑器 | https://94275.cn/demo/codemirror/ |
+| 21 | CSS表盘 | https://94275.cn/demo/cssclock/ |
+| 22 | 颜色选择器 | https://94275.cn/demo/ColorPicker/ |
+
+PS:
+
+1. ColorPicker 中的 color.js 不能混淆；
 

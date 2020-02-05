@@ -21,6 +21,7 @@ const glob = require("glob");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const JavaScriptObfuscator = require('webpack-obfuscator');
 
 const htmls = glob.sync('./src/**/*.html');
 const entrys = {};
@@ -49,7 +50,7 @@ htmls.forEach((filePath) => {
                 template: filePath,
                 chunks: [chunk],
                 filename: filename,
-                inject: true,
+                inject: 'body',
                 hash: true,
             })
         )
@@ -57,6 +58,9 @@ htmls.forEach((filePath) => {
 });
 // 最后把要使用的插件放进去
 pluginsArray.push(new CleanWebpackPlugin());
+pluginsArray.push(new JavaScriptObfuscator({
+    rotateUnicodeArray: true
+}, ['ColorPicker/color.js']));
 
 module.exports = {
     entry: entrys,
