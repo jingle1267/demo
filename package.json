@@ -28,6 +28,7 @@
   "homepage": "https://github.com/jingle1267/demo#readme",
   "dependencies": {
     "codemirror": "^5.50.2",
+    "compass": "^0.1.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lesshat": "^4.1.0",

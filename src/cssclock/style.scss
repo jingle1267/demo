@@ -1,0 +1,594 @@
+/*[this is where magic is brewed]*/
+
+$size: 95vmin;
+$hue-primary: 30;
+$bg-sat: 10%;
+$primary-color: hsla($hue-primary, 100%, 50%, 1);
+$complementary-color: complement($primary-color);
+$inverted-color: invert($primary-color);
+$gear-color-0: desaturate($complementary-color, 80%);
+$second-hand: hsla($hue-primary, $bg-sat, 30%, 1);
+$minute-hand: hsla($hue-primary, $bg-sat, 25%, 1);
+$hour-hand: hsla($hue-primary, $bg-sat, 20%, 1);
+$gear-front: hsla($hue-primary, $bg-sat, 15%, 1);
+$gear-back: hsla($hue-primary, $bg-sat, 10%, 1);
+$back-drop: hsla($hue-primary, $bg-sat, 6%, 1);
+$besier-relaxed: cubic-bezier(.75, 0, .25, 1);
+//#test {
+//position: absolute;
+//top: 1rem;
+//left: -1rem;
+// width: 2rem;
+//height: 2rem;
+//border: .25rem solid $primary-color;
+//background: $inverted-color;
+//animation: circle 60s steps(60) infinite;
+// }
+
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes anchorswing {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: .5;
+  }
+  50% {
+    opacity: .25;
+  }
+  90% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  0% {
+    opacity: .25;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .25;
+  }
+}
+
+@keyframes hue {
+  0% {
+    fill: $primary-color;
+  }
+  //33.33% {fill: adjust-hue($primary-color, 120deg);}
+  //66.66% {fill: adjust-hue($primary-color, 240deg);}
+  55% {
+    fill: $primary-color;
+  }
+  70% {
+    fill: adjust-hue($primary-color, 120deg);
+  }
+  85% {
+    fill: adjust-hue($primary-color, 240deg);
+  }
+  99.99% {
+    fill: adjust-hue($primary-color, 360deg);
+  }
+}
+
+@keyframes stroke-hue {
+  0% {
+    stroke: $primary-color;
+  }
+  //33.33% {stroke: adjust-hue($primary-color, 120deg);}
+  //66.66% {stroke: adjust-hue($primary-color, 240deg);}
+  55% {
+    stroke: $primary-color;
+  }
+  70% {
+    stroke: adjust-hue($primary-color, 120deg);
+  }
+  85% {
+    stroke: adjust-hue($primary-color, 240deg);
+  }
+  99.99% {
+    stroke: adjust-hue($primary-color, 360deg);
+  }
+}
+
+@keyframes dust {
+  0% {
+    opacity: 0;
+    transform: scale(.5) rotateZ(-15deg);
+  }
+  50% {
+    opacity: .75;
+    transform: scale(.75) rotateZ(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotateZ(15deg);
+  }
+}
+
+html {
+  body {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background: hsl(30, 0%, 5%);
+    .frame {
+      position: absolute;
+      height: $size;
+      width: $size;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      svg {
+        position: absolute;
+        height: 125%;
+        width: 125%;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        .primary-fill {
+          fill: $primary-color;
+        }
+        .primary-stroke-a {
+          fill: none;
+          stroke: $primary-color;
+          stroke-width: 1;
+        }
+        .primary-stroke-b {
+          fill: none;
+          stroke: $primary-color;
+          stroke-width: 3;
+        }
+        .hour-hand {
+          fill: $hour-hand;
+        }
+        .minute-hand {
+          fill: $minute-hand;
+        }
+        .second-hand {
+          fill: $second-hand;
+        }
+        .skeleton-frame {
+          fill: url(#face_frame_skeleton_1_);
+        }
+        .gear-front {
+          fill: $gear-front;
+        }
+        .gear-back {
+          fill: $gear-back;
+        }
+        .backdrop-disk {
+          fill: $back-drop;
+        }
+        .backdrop-glow-gradient {
+          fill: url(#backdrop_glow_gradient);
+        }
+        .st11 {
+          fill: none;
+        }
+        // Illustrator styles
+        .st1 {
+          fill: none;
+          stroke: #1A1A1A;
+          stroke-width: 6;
+          stroke-linecap: round;
+        }
+        .st2 {
+          fill: none;
+          stroke: #1A1A1A;
+          stroke-width: 4.75;
+          stroke-linecap: round;
+        }
+        .st3 {
+          fill: none;
+          stroke: #1A1A1A;
+          stroke-width: 3.5;
+          stroke-linecap: round;
+        }
+        .st4 {
+          fill: none;
+          stroke: #1A1A1A;
+          stroke-width: 2.25;
+          stroke-linecap: round;
+        }
+        .st5 {
+          fill: none;
+          stroke: #1A1A1A;
+          stroke-linecap: round;
+        }
+        .st6 {
+          fill: url(#SVGID_1_);
+        }
+        .st8 {
+          fill: url(#SVGID_2_);
+        }
+        .st9 {
+          fill: #181818;
+        }
+        .st10 {
+          fill: url(#SVGID_3_);
+        }
+        .st14 {
+          fill: url(#SVGID_4_);
+        }
+        .st15 {
+          fill: url(#SVGID_5_);
+          stroke: url(#SVGID_6_);
+          stroke-width: 2;
+        }
+        .st16 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_7_);
+        }
+        .st17 {
+          fill: #282828;
+          stroke: url(#SVGID_8_);
+          stroke-width: 2;
+        }
+        .st18 {
+          fill: #282828;
+          stroke: url(#SVGID_9_);
+          stroke-width: 2;
+        }
+        .st19 {
+          fill: #282828;
+          stroke: url(#SVGID_10_);
+          stroke-width: 2;
+        }
+        .st20 {
+          fill: #282828;
+          stroke: url(#SVGID_11_);
+          stroke-width: 2;
+        }
+        .st21 {
+          fill: #282828;
+          stroke: url(#SVGID_12_);
+          stroke-width: 2;
+        }
+        .st22 {
+          fill: #282828;
+          stroke: url(#SVGID_13_);
+          stroke-width: 2;
+        }
+        .st23 {
+          fill: #282828;
+          stroke: url(#SVGID_14_);
+          stroke-width: 2;
+        }
+        .st24 {
+          fill: #282828;
+          stroke: url(#SVGID_15_);
+          stroke-width: 2;
+        }
+        .st25 {
+          fill: #282828;
+          stroke: url(#SVGID_16_);
+          stroke-width: 2;
+        }
+        .st26 {
+          fill: #282828;
+          stroke: url(#SVGID_17_);
+          stroke-width: 2;
+        }
+        .st27 {
+          fill: #282828;
+          stroke: url(#SVGID_18_);
+          stroke-width: 2;
+        }
+        .st28 {
+          fill: #282828;
+          stroke: url(#SVGID_19_);
+          stroke-width: 2;
+        }
+        .st29 {
+          fill: url(#SVGID_20_);
+          stroke: url(#SVGID_21_);
+          stroke-width: 2;
+        }
+        .st30 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_22_);
+        }
+        .st31 {
+          fill: url(#SVGID_23_);
+          stroke: url(#SVGID_24_);
+          stroke-width: 2;
+        }
+        .st32 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_25_);
+        }
+        .st34 {
+          fill: url(#SVGID_26_);
+          stroke: url(#SVGID_27_);
+          stroke-width: 2;
+        }
+        .st35 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_28_);
+        }
+        .st36 {
+          fill: url(#SVGID_29_);
+          stroke: url(#SVGID_30_);
+          stroke-width: 2;
+        }
+        .st37 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_31_);
+        }
+        .st38 {
+          fill: url(#SVGID_32_);
+          stroke: url(#SVGID_33_);
+          stroke-width: 2;
+        }
+        .st39 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_34_);
+        }
+        .st40 {
+          fill: url(#SVGID_35_);
+          stroke: url(#SVGID_36_);
+          stroke-width: 2;
+        }
+        .st41 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_37_);
+        }
+        .st42 {
+          fill: url(#SVGID_38_);
+        }
+        .st45 {
+          fill: url(#SVGID_39_);
+        }
+        .st46 {
+          fill: url(#SVGID_40_);
+        }
+        .st47 {
+          fill: url(#SVGID_41_);
+        }
+        .st48 {
+          fill: url(#SVGID_42_);
+        }
+        .st49 {
+          fill: url(#SVGID_43_);
+        }
+        .st50 {
+          fill: url(#SVGID_44_);
+        }
+        .st51 {
+          fill: url(#SVGID_45_);
+        }
+        .st52 {
+          fill: url(#SVGID_46_);
+        }
+        .st53 {
+          fill: url(#SVGID_47_);
+        }
+        .st54 {
+          fill: url(#SVGID_48_);
+        }
+        .st55 {
+          fill: url(#SVGID_49_);
+        }
+        .st60 {
+          fill: url(#SVGID_50_);
+          stroke: url(#SVGID_51_);
+          stroke-width: 2;
+        }
+        .st61 {
+          fill: #0D0D0D;
+          stroke: url(#SVGID_52_);
+        }
+        #hands,
+        #hands g {
+          transform-origin: 657.5px 657.5px;
+        }
+        /*[animations]*/
+        #knobs {
+          animation: breathe 5s linear infinite;
+          [class^=primary-stroke] {
+            animation: stroke-hue 15s linear infinite;
+          }
+        }
+        #face_marks {
+          g {
+            animation: breathe 5s linear infinite;
+          }
+          .primary-fill {
+            animation: hue 15s linear infinite;
+          }
+        }
+        #back_marks {
+          animation: breathe 10s linear infinite;
+        }
+        #second_hand {
+          animation: circle 60s steps(360) infinite;
+        }
+        #minute_hand {
+          animation: circle 3600s steps(360) infinite;
+        }
+        #hour_hand {
+          animation: circle 216000s steps(360) infinite;
+        }
+        #pendilum {
+          transform-origin: 657.5px 275px;
+          animation: swing 1s $besier-relaxed alternate infinite;
+        }
+        #gear_anchor {
+          transform-origin: 657.5px 275px;
+          animation: anchorswing 1s $besier-relaxed alternate infinite;
+        }
+        #gear_click {
+          transform-origin: 657.5px 657.5px;
+          animation: circle 30s steps(30) reverse infinite;
+        }
+        #backdrop_disk {
+          transform-origin: 657.5px 657.5px;
+          animation: circle 300s linear infinite;
+        }
+        #ticks {
+          animation: pulse 1s linear infinite;
+          [id^=minute] {
+            animation: hue 15s linear infinite;
+          }
+        }
+        #gear_front_ten_mark {
+          transform-origin: 292px 447px;
+          animation: circle 10s steps(90) infinite;
+        }
+        #gear_front_two {
+          transform-origin: 657.5px 657.5px;
+          animation: circle 60s linear infinite;
+        }
+        #gear_front_small,
+        #gear_six {
+          transform-origin: 768px 732px;
+          animation: circle 36s linear reverse infinite;
+        }
+        #gear_one {
+          transform-origin: 657.5px 657.5px;
+          animation: circle 30s linear infinite;
+        }
+        #gear_two {
+          transform-origin: 532.7px 585.5px;
+          animation: circle 5s steps(90) infinite;
+        }
+        #gear_three {
+          transform-origin: 954.8px 955.5px;
+          animation: circle 7.5s linear infinite;
+        }
+        #gear_four {
+          transform-origin: 986px 629px;
+          animation: circle 7.5s linear infinite;
+        }
+        #gear_five {
+          transform-origin: 359px 955px;
+          animation: circle 15s linear infinite;
+        }
+        #gear_seven {
+          transform-origin: 359px 358px;
+          animation: circle 7.5s steps(90) reverse infinite;
+        }
+        #gear_eight {
+          transform-origin: 533px 585.5px;
+          animation: circle 15s steps(90) infinite;
+        }
+        #gear_nine {
+          transform-origin: 874px 444.5px;
+          animation: circle 10s steps(90) infinite;
+        }
+        #gear_ten {
+          transform-origin: 328px 616.5px;
+          animation: circle 10s steps(90) infinite;
+        }
+        #gear_eleven {
+          transform-origin: 533px 585.5px;
+          animation: circle 10s steps(90) reverse infinite;
+        }
+        #backdrop_glow {
+          animation: glow 15s linear infinite;
+        }
+        [id$=nib] {
+          animation: hue 15s linear infinite;
+        }
+      }
+    }
+    .dust {
+      z-index: 1;
+      //overflow: hidden;
+      position: absolute;
+      width: 120vmin;
+      height: 120vmin;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      .specs {
+        z-index: 1;
+        //overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+                radial-gradient(2px 2px at 10% 10%, $primary-color, transparentize($primary-color, 1)),
+                radial-gradient(2px 2px at 20% 30%, $complementary-color, transparentize($complementary-color, 1)),
+                radial-gradient(2px 2px at 40% 70%, $primary-color, transparentize($primary-color, 1)),
+                radial-gradient(2px 2px at 50% 60%, $complementary-color, transparentize($complementary-color, 1)),
+                radial-gradient(2px 2px at 80% 40%, $primary-color, transparentize($primary-color, 1)),
+                radial-gradient(2px 2px at 90% 60%, $complementary-color, transparentize($complementary-color, 1)),
+                radial-gradient(2px 2px at 75% 80%, $primary-color, transparentize($primary-color, 1)),
+                radial-gradient(2px 2px at 90% 80%, $complementary-color, transparentize($complementary-color, 1));
+        background-repeat: repeat;
+        background-size: 100px 100px;
+        opacity: 0;
+        animation: dust 3s linear infinite;
+      }
+      .specs:nth-child(1) {
+        background-position: 50% 50%;
+        animation-delay: 0s;
+      }
+      .specs:nth-child(2) {
+        background-position: 20% 60%;
+        animation-delay: 1s;
+        animation-direction: reverse;
+      }
+      .specs:nth-child(3) {
+        background-position: -20% -30%;
+        animation-delay: 2s;
+      }
+      .specs:nth-child(4) {
+        background-position: 40% -80%;
+        animation-delay: 3s;
+        animation-direction: reverse;
+      }
+      .specs:nth-child(5) {
+        background-position: -20% 30%;
+        animation-delay: 4s;
+      }
+    }
+  }
+}
