@@ -32,9 +32,9 @@ htmls.forEach((filePath) => {
     // 分割路径, ['src', 'components', 'index.html'], 放进 path 数组里
     let path = filePath.split('/');
     let chunk = path[2];
-    console.log('filePath', filePath);
+    // console.log('filePath', filePath);
     if (filePath.startsWith('./src/') && filePath.endsWith('/index.html') && !filePath.endsWith('./src/template.html')) {
-        console.log('chunk:', chunk);
+        // console.log('chunk:', chunk);
         // 动态配置入口文件路径
         // console.log('template:', filePath);
         entrys[chunk] = './src/' + chunk + '/index.js';
@@ -54,6 +54,8 @@ htmls.forEach((filePath) => {
                 hash: true,
             })
         )
+    } else {
+        console.info('exception chunk:', chunk)
     }
 });
 // 最后把要使用的插件放进去

@@ -25,7 +25,8 @@
 | 19 | Cool Layout | https://94275.cn/demo/coollayout/ |
 | 20 | 代码编辑器 | https://94275.cn/demo/codemirror/ |
 | 21 | CSS表盘 | https://94275.cn/demo/cssclock/ |
-| 22 | 颜色选择器 | https://94275.cn/demo/ColorPicker/ |
+| 22 | 颜色选择器1 | https://94275.cn/demo/ColorPicker/ |
+| 23 | 颜色选择器2 | https://94275.cn/demo/BubbleColorPicker/ |
 
 PS:
 
