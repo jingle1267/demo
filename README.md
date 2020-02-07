@@ -27,6 +27,7 @@
 | 21 | CSS表盘 | https://94275.cn/demo/cssclock/ |
 | 22 | 颜色选择器1 | https://94275.cn/demo/ColorPicker/ |
 | 23 | 颜色选择器2 | https://94275.cn/demo/BubbleColorPicker/ |
+| 24 | 日历 | https://94275.cn/demo/calendar/ |
 
 PS:
 
