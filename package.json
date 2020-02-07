@@ -32,7 +32,7 @@
     "codemirror": "^5.50.2",
     "compass": "^0.1.1",
     "fs": "0.0.1-security",
-    "knockout": "3.4.0",
+    "knockout": "3.5.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lesshat": "^4.1.0",
