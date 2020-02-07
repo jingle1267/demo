@@ -46,7 +46,7 @@ function generateIndex() {
 }
 
 function component() {
-    console.log(map)
+    // console.log(map)
 
     var home_items = [];
 
