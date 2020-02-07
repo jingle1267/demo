@@ -29,7 +29,7 @@ function generateIndex() {
                 }
                 let key = item_arr[3];
                 let value = item_arr[2];
-                 key = key.replace(/^\s*|\s*$/g,"");
+                key = key.replace(/^\s*|\s*$/g,"");
                 console.log(key, ' - ', value);
                 map.set(key, value)
                 // console.log('item;', item);
@@ -52,6 +52,7 @@ function component() {
 
     let aim_path = './src'
     var dirlist = fs.readdirSync(aim_path);
+    dirlist.sort();
     if (dirlist.length === 0) {
         context.exception('exception');
     } else {
@@ -66,10 +67,11 @@ function component() {
                 // 生成的文件名称中不能包含小数点
                 if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1
                     && folder.indexOf('index') === -1 && folder !== 'template') {
-                    console.log(dirname);
+                    // console.log(dirname);
                     let link_name = map.get('https://94275.cn/demo/' + folder + '/');
-                    console.log('link_name:', link_name);
+                    // console.log('link_name:', link_name);
                     if (!link_name) {
+                        console.warn('发现没有正名的 demo');
                         link_name = folder;
                     }
                     home_items.push({
