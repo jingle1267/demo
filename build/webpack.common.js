@@ -23,6 +23,8 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const JavaScriptObfuscator = require('webpack-obfuscator');
 
+require('./buildindex');
+
 const htmls = glob.sync('./src/**/*.html');
 const entrys = {};
 const pluginsArray = [];
@@ -63,6 +65,8 @@ pluginsArray.push(new CleanWebpackPlugin());
 pluginsArray.push(new JavaScriptObfuscator({
     rotateUnicodeArray: true
 }, ['ColorPicker/color.js']));
+
+
 
 module.exports = {
     entry: entrys,
@@ -112,7 +116,7 @@ module.exports = {
                     loader: "less-loader",
                     options: {
                         javascriptEnabled: true,
-                        paths:[path.resolve(__dirname, '../node_modules/lesshat/')]
+                        paths: [path.resolve(__dirname, '../node_modules/lesshat/')]
                     }
                 }]
             },

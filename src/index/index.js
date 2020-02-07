@@ -31,6 +31,7 @@ async function conponent() {
     let ul = document.body.getElementsByTagName('ul')[0];
     const context = require.context('../../src', true, /.*/);
     let key_list = context.keys();
+
     for (let i = 0; i < key_list.length; i++) {
         let item = key_list[i];
 
@@ -89,7 +90,7 @@ function getLiStyle(position) {
     return style_arr[position % style_arr.length];
 }
 
-conponent().then(component => {
+// conponent().then(component => {
     // document.body.appendChild(component);
-})
+// })
 

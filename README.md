@@ -28,6 +28,7 @@
 | 22 | 颜色选择器1 | https://94275.cn/demo/ColorPicker/ |
 | 23 | 颜色选择器2 | https://94275.cn/demo/BubbleColorPicker/ |
 | 24 | 日历 | https://94275.cn/demo/calendar/ |
+| 25 | 炫酷背景特效 | https://94275.cn/demo/partiles/ |
 
 PS:
 
