@@ -59,7 +59,8 @@ function component() {
         let i = 0;
         dirlist.forEach(function (dirname) {
             var new_path = aim_path + "/" + dirname;
-            var stat = fs.statSync(new_path);                             //要检查是否为文件夹，需获取stat对象
+            var stat = fs.statSync(new_path);                            
+            // 要检查是否为文件夹，需获取stat对象
             if (stat && stat.isDirectory()) {
 
                 let folder = dirname;

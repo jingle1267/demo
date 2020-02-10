@@ -1,0 +1,212 @@
+$orange: #ffb63c;
+$sun: (
+        0: #ffdb41,
+        1: #ffb63c,
+        2: #ffa638,
+        3: #ff963c,
+        4: #ff823c,
+        5: #ff6d3c
+);
+$red: #e3413c;
+$red-dk: #cb3838;
+$grey: #d4d1d0;
+$grey-dk: #b1acac;
+$black: #131313;
+$cubic-bezier: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body ,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: $grey;
+  font-family: 'Courier New', monospace;
+}
+
+.animation {
+  &__block {
+    position: relative;
+    background-color: $grey-dk;
+    min-width: 280px;
+    min-height: 280px;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 3vw;
+    box-shadow: 0 .3vw .6vw -.3vw rgba($black, .75);
+    margin: 4vw auto 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  &__caption {
+    font-size: .75rem;
+    width: 250px;
+    margin: 10px auto 0;
+    text-align: right;
+  }
+}
+
+.hill,
+.sun {
+  animation: {
+    duration: 4s;
+    play-state: fill;
+    iteration-count: infinite;
+    timing-function: $cubic-bezier;
+  }
+}
+
+.hill {
+  position: absolute;
+  top: 100%;
+  height: 150%;
+  border-radius: 50%;
+  z-index: 2;
+
+  &.red-dk {
+    left: -75%;
+    width: 150%;
+    background-color: $red-dk;
+    box-shadow: inset 0 0 0 2px rgba(lighten($red-dk, 30%), .091);
+    animation-name: rise-red-dk;
+  }
+
+  &.red {
+    left: -30%;
+    width: 250%;
+    background-color: $red;
+    box-shadow: inset 0 0 0 2px rgba(lighten($red, 30%), .091);
+    animation-name: rise-red;
+  }
+}
+
+.sun {
+  position: absolute;
+  left: -20%;
+  top: 100%;
+  width: 20%;
+  height: 20%;
+  background-color: map-get($sun, 0);
+  border-radius: 50%;
+  transform: scale(0);
+  animation-name: sun;
+}
+
+
+/**
+* HILL ANIMATIONS
+*/
+@keyframes rise-red-dk {
+  17%, 73% { transform: translateY(-30%);   }
+}
+@keyframes rise-red {
+  23%, 80% { transform: translateY(-20%);   }
+}
+
+/**
+* SUN ANIMATION
+*/
+@keyframes sun {
+  0%, 10% {
+    transform: scale(.1);
+  }
+  20% {
+    transform: translate(400%, -400%) scale(1);
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091);
+  }
+  25% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091);
+  }
+  26% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    long-shadow(90, 0, transparent),
+    0 0 0 35px map-get($sun, 1);
+  }
+  27% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2);
+  }
+  28% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3);
+  }
+  29% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3),
+    0 0 0 140px map-get($sun, 4);
+  }
+  30% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3),
+    0 0 0 140px map-get($sun, 4),
+    0 0 0 175px map-get($sun, 5);
+  }
+  31% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3),
+    0 0 0 140px map-get($sun, 4),
+    0 0 0 175px map-get($sun, 5),
+    0 0 0 210px $red;
+  }
+  32% {
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3),
+    0 0 0 140px map-get($sun, 4),
+    0 0 0 175px map-get($sun, 5),
+    0 0 0 210px $red,
+    0 0 0 250px $red-dk;
+  }
+
+  70% {
+    transform: translate(400%, -400%) scale(1);
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    long-shadow(10, 0, map-get($sun, 0)),
+    0 0 0 35px map-get($sun, 1),
+    0 0 0 70px map-get($sun, 2),
+    0 0 0 105px map-get($sun, 3),
+    0 0 0 140px map-get($sun, 4),
+    0 0 0 175px map-get($sun, 5),
+    0 0 0 210px $red,
+    0 0 0 250px $red-dk;
+  }
+  85% {
+    transform: translate(800%, 200%) scale(1);
+    box-shadow: inset 0 0 0 2px rgba(lighten(map-get($sun, 0), 30%), .091),
+    long-shadow(10, 0, map-get($sun, 0)),
+    0 0 0 10px map-get($sun, 1),
+    0 0 0 20px map-get($sun, 2),
+    0 0 0 35px map-get($sun, 3),
+    0 0 0 40px map-get($sun, 4),
+    0 0 0 50px map-get($sun, 5),
+    0 0 0 60px $red,
+    0 0 0 70px $red-dk;
+  }
+
+  90% { transform: translate(800%, 200%) scale(0); }
+}
+
+a {
+  display: inline-block;
+  vertical-align: middle;
+  color: $black;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid map-get($sun, 4);
+  }
+}
