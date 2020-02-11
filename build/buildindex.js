@@ -72,7 +72,7 @@ function component() {
                     let link_name = map.get('https://94275.cn/demo/' + folder + '/');
                     // console.log('link_name:', link_name);
                     if (!link_name) {
-                        console.warn('发现没有正名的 demo');
+                        console.warn('发现没有正名的 demo，目录名称：', folder);
                         link_name = folder;
                     }
                     home_items.push({
