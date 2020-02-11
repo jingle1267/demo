@@ -30,6 +30,7 @@
 | 24 | 日历 | https://94275.cn/demo/calendar/ |
 | 25 | 炫酷背景特效 | https://94275.cn/demo/partiles/ |
 | 26 | 日出动画 | https://94275.cn/demo/sunrise/ |
+| 27 | 全屏图片切换效果 | https://94275.cn/demo/FullPageSlider/ |
 
 PS:
 
