@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <title>优秀动画效果</title>
+    <meta name="author" content="jingle1267">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style type="text/css">
+        button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 10px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 8%;
+            visibility: hidden;
+        }
+        button:hover,.form button:active,.form button:focus {
+            background: #43A047;
+        }
+    </style>
+</head>
+<body>
+
+<div id="nView" style="position:relative;height:97vh;border:1px solid #CCC;overflow:hidden;">
+
+
+    <div style="position:absolute;top:60%;left:10%;width: 80%;height:40%;text-align: center;">
+        <h1 id="result" style="width: 100%;height: 10%;text-align: center;font-size:3em;color:green;"></h1>
+        <button id="btn" onclick="nStart()">重新选择</button>
+    </div>
+</div>
+
+<div style="display:none">
+    <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1260545070&web_id=1260545070"></script>
+</div>
+
+<script type="text/javascript">
+    var ntimer;
+    var MOFUN = {};
+    MOFUN.random = function (max, min) {
+        max = max || 100;
+        min = min || 0;
+        return Math.ceil(Math.random() * (max - min) + min);
+    };
+    var nStart = function () {
+        var l = "面包 蛋糕 荷包蛋 烧饼 饽饽 油条 馄饨 火腿 面条 小笼包  玉米粥 肉包 山东煎饼 饺子 煎蛋 烧卖 生煎 锅贴 包子 酸奶 苹果 梨 香蕉 皮蛋瘦肉粥 蛋挞 南瓜粥 煎饼 玉米糊 泡面 粥 馒头 燕麦片 水煮蛋 米粉 豆浆 牛奶 花卷 豆腐脑 煎饼果子 小米粥 黑米糕 鸡蛋饼 牛奶布丁 水果沙拉 鸡蛋羹 南瓜馅饼 鸡蛋灌饼 奶香小馒头 汉堡包 披萨 八宝粥 三明治 蛋包饭 豆沙红薯饼 驴肉火烧 粥 粢饭糕 蒸饺 白粥".split(' ');
+        ntimer = setInterval(function () {
+            var r = MOFUN.random(l.length),
+                food = l[r - 1],
+                rTop = MOFUN.random($("#nView").height()),
+                rLeft = MOFUN.random($("#nView").width() - 50),
+                rSize = MOFUN.random(48, 14);
+            $('#nView span[type=text]').val(food);
+            $('#result').html(food);
+            $("<span class='temp'>" + food + "</span>").css({
+                "display": "none",
+                "position": "absolute",
+                "z-index": "-1",
+                "top": rTop,
+                "left": rLeft,
+                "color": "rgba(0,0,0,." + Math.random() + ")",
+                "fontSize": rSize + "px"
+            }).appendTo("#nView").fadeIn("slow", function () {
+                $(this).fadeOut("slow", function () {
+                    $(this).remove();
+                });
+            });
+        }, 60);
+        setTimeout(function () {
+            clearInterval(ntimer);
+        }, 1000);
+    };
+    var nStop = function () {
+        clearInterval(ntimer);
+    };
+    nStart();
+    setTimeout(function () {
+        console.log(111);
+        $('#btn').css('visibility','visible');
+    }, 3000);
+</script>
+
+</body>
+</html>

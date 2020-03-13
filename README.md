@@ -32,6 +32,7 @@
 | 26 | 日出动画 | https://94275.cn/demo/sunrise/ |
 | 27 | 全屏图片切换效果 | https://94275.cn/demo/FullPageSlider/ |
 | 28 | 罗马时钟 | https://94275.cn/demo/RomanClock/ |
+| 28 | 吃什么 | https://94275.cn/demo/LunchDecision/ |
 
 PS:
 
