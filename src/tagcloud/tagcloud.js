@@ -222,7 +222,7 @@ var WORDLEJS = WORDLEJS || {};
         runTime: 0,
         curIdx: 0,
         keepCenter: false,
-        urlPrefix: "https://94275.cn/?q=",
+        urlPrefix: "https://demo.94275.cn/?q=",
 
         //methods
         constructor: WORDLEJS.Wordle,

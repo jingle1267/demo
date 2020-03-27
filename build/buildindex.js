@@ -69,7 +69,7 @@ function component() {
                 if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1
                     && folder.indexOf('index') === -1 && folder !== 'template') {
                     // console.log(dirname);
-                    let link_name = map.get('https://94275.cn/demo/' + folder + '/');
+                    let link_name = map.get('https://demo.94275.cn/' + folder + '/');
                     // console.log('link_name:', link_name);
                     if (!link_name) {
                         console.warn('发现没有正名的 demo，目录名称：', folder);
