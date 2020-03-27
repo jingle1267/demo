@@ -1,0 +1,2 @@
+git remote add coding git@e.coding.net:keeeweee/demo.git
+git push -u coding master
