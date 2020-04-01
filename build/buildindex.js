@@ -52,11 +52,12 @@ function component() {
 
     let aim_path = './src'
     var dirlist = fs.readdirSync(aim_path);
-    dirlist.sort();
+    // dirlist.sort();
     if (dirlist.length === 0) {
         context.exception('exception');
     } else {
         let i = 0;
+        let real_folder_index = 0;
         dirlist.forEach(function (dirname) {
             var new_path = aim_path + "/" + dirname;
             var stat = fs.statSync(new_path);                            
@@ -64,10 +65,11 @@ function component() {
             if (stat && stat.isDirectory()) {
 
                 let folder = dirname;
-
                 // 生成的文件名称中不能包含小数点
                 if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1
                     && folder.indexOf('index') === -1 && folder !== 'template') {
+                    real_folder_index++;
+
                     // console.log(dirname);
                     let link_name = map.get('https://demo.94275.cn/' + folder + '/');
                     // console.log('link_name:', link_name);
@@ -75,10 +77,11 @@ function component() {
                         console.warn('发现没有正名的 demo，目录名称：', folder);
                         link_name = folder;
                     }
+
                     home_items.push({
                         "path": './' + folder + '/',
                         "name": link_name,
-                        "style": getLiStyle(i)
+                        "style": ''
                     })
                 }
 
@@ -87,13 +90,26 @@ function component() {
             i++;
 
         });
-
     }
 
     fs.readFile("./src/index/index.tpl", "utf8", function (err, data) {
         if (err) {
             return console.log(err);
         }
+        // 对数据进行排序，按照readme中列表顺序排序
+        home_items.sort(function (a, b) {
+            if (a['name'] > b['name']) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+        // 修改样式
+        for (i = 0 ;i < home_items.length; i++) {
+            home_items[i].style = getLiStyle(i);
+        }
+        console.log('home_items:', home_items);
+
         var output = Mustache.render(data, {sliders: home_items});
         fs.writeFile('./src/index/index.html', output, function (err, written, buffer) {
         });
@@ -105,9 +121,9 @@ function component() {
  * 获取 li 样式
  */
 function getLiStyle(position) {
-    if (position === -1) {
-        position = Math.round(Math.random() * 20);
-    }
+    // if (position === -1) {
+    //     position = Math.round(Math.random() * 20);
+    // }
     var style_arr = [
         'border-top: 6px solid #455a64;background: #90a4ae;',
         'border-top: 6px solid #333333;background: #9e9e9e;',
@@ -125,5 +141,10 @@ function getLiStyle(position) {
         'border-top: 6px solid #e51c23;background: #f69988;',
         'border-top: 6px solid #e91e63;background: #f48fb1;'
     ];
-    return style_arr[position % style_arr.length];
+
+    var style_size = style_arr.length;
+
+    var pos = Math.ceil(style_size / 4 * position) % style_size;
+
+    return style_arr[pos];
 }
