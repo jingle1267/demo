@@ -34,7 +34,7 @@ htmls.forEach((filePath) => {
     // 分割路径, ['src', 'components', 'index.html'], 放进 path 数组里
     let path = filePath.split('/');
     let chunk = path[2];
-    // console.log('filePath', filePath);
+    console.log('filePath', filePath);
     if (filePath.startsWith('./src/') && filePath.endsWith('/index.html') && !filePath.endsWith('./src/template.html')) {
         // console.log('chunk:', chunk);
         // 动态配置入口文件路径
@@ -60,12 +60,27 @@ htmls.forEach((filePath) => {
         console.info('exception chunk:', chunk)
     }
 });
+
+// 复制static下面的不需要编译的demo
+// const static_htmls = glob.sync('./static/**/*.html');
+// let fs = require('fs');
+// static_htmls.forEach((filePath) => {
+//     // 分割路径, ['src', 'components', 'index.html'], 放进 path 数组里
+//     let path = filePath.split('/');
+//     let chunk = path[2];
+//     console.log('filePath', filePath);
+//     if (filePath.startsWith('./static/') && filePath.endsWith('.html')) {
+//         copyFolder('./static/' + chunk + '/', './dist/')
+//     } else {
+//         console.info('exception chunk:', chunk)
+//     }
+// });
+
 // 最后把要使用的插件放进去
 pluginsArray.push(new CleanWebpackPlugin());
 pluginsArray.push(new JavaScriptObfuscator({
     rotateUnicodeArray: true
 }, ['ColorPicker/color.js']));
-
 
 
 module.exports = {
@@ -133,3 +148,23 @@ module.exports = {
         ]
     }
 };
+
+
+function copyFolder(from, to) {        // 复制文件夹到指定目录
+    let files = [];
+    if (fs.existsSync(to)) {           // 文件是否存在 如果不存在则创建
+        files = fs.readdirSync(from);
+        files.forEach(function (file, index) {
+            var targetPath = from + "/" + file;
+            var toPath = to + '/' + file;
+            if (fs.statSync(targetPath).isDirectory()) { // 复制文件夹
+                copyFolder(targetPath, toPath);
+            } else {                                    // 拷贝文件
+                fs.copyFileSync(targetPath, toPath);
+            }
+        });
+    } else {
+        fs.mkdirSync(to);
+        copyFolder(from, to);
+    }
+}

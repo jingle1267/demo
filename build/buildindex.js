@@ -29,7 +29,7 @@ function generateIndex() {
                 }
                 let key = item_arr[3];
                 let value = item_arr[2];
-                key = key.replace(/^\s*|\s*$/g,"");
+                key = key.replace(/^\s*|\s*$/g, "");
                 console.log(key, ' - ', value);
                 map.set(key, value)
                 // console.log('item;', item);
@@ -57,10 +57,9 @@ function component() {
         context.exception('exception');
     } else {
         let i = 0;
-        let real_folder_index = 0;
         dirlist.forEach(function (dirname) {
             var new_path = aim_path + "/" + dirname;
-            var stat = fs.statSync(new_path);                            
+            var stat = fs.statSync(new_path);
             // 要检查是否为文件夹，需获取stat对象
             if (stat && stat.isDirectory()) {
 
@@ -68,8 +67,6 @@ function component() {
                 // 生成的文件名称中不能包含小数点
                 if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1
                     && folder.indexOf('index') === -1 && folder !== 'template') {
-                    real_folder_index++;
-
                     // console.log(dirname);
                     let link_name = map.get('https://demo.94275.cn/' + folder + '/');
                     // console.log('link_name:', link_name);
@@ -92,6 +89,47 @@ function component() {
         });
     }
 
+    // 读取不需要编译页面
+    // let static_path = './static'
+    // var static_list = fs.readdirSync(static_path);
+    // if (static_list.length === 0) {
+    //     context.exception('读取static目录下静态demo异常');
+    // } else {
+    //     let i = 0;
+    //     static_list.forEach(function (dirname) {
+    //         var new_path = static_path + "/" + dirname;
+    //         var stat = fs.statSync(new_path);
+    //         // 要检查是否为文件夹，需获取stat对象
+    //         if (stat && stat.isDirectory()) {
+    //
+    //             let folder = dirname;
+    //             // 生成的文件名称中不能包含小数点
+    //             if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1) {
+    //                 // console.log(dirname);
+    //                 let link_name = map.get('https://demo.94275.cn/' + folder + '/');
+    //                 // console.log('link_name:', link_name);
+    //                 if (!link_name) {
+    //                     console.warn('发现没有正名的 demo，目录名称：', folder);
+    //                     link_name = folder;
+    //                 }
+    //
+    //                 home_items.push({
+    //                     "path": './' + folder + '/',
+    //                     "name": link_name,
+    //                     "style": ''
+    //                 });
+    //
+    //                 console.log('=== ' + './static/' + folder);
+    //
+    //             }
+    //
+    //
+    //         }
+    //         i++;
+    //
+    //     });
+    // }
+
     fs.readFile("./src/index/index.tpl", "utf8", function (err, data) {
         if (err) {
             return console.log(err);
@@ -105,7 +143,7 @@ function component() {
             }
         });
         // 修改样式
-        for (i = 0 ;i < home_items.length; i++) {
+        for (i = 0; i < home_items.length; i++) {
             home_items[i].style = getLiStyle(i);
         }
         console.log('home_items:', home_items);
@@ -148,3 +186,45 @@ function getLiStyle(position) {
 
     return style_arr[pos];
 }
+
+var copy = function (src, dst) {
+    //读取目录
+    fs.readdir(src, function (err, paths) {
+        console.log(paths)
+        if (err) {
+            throw err;
+        }
+        paths.forEach(function (path) {
+            var _src = src + '/' + path;
+            var _dst = dst + '/' + path;
+            var readable;
+            var writable;
+            fs.stat(_src, function (err, st) {
+                if (err) {
+                    throw err;
+                }
+
+                if (st.isFile()) {
+                    readable = fs.createReadStream(_src);//创建读取流
+                    writable = fs.createWriteStream(_dst);//创建写入流
+                    readable.pipe(writable);
+                } else if (st.isDirectory()) {
+                    exists(_src, _dst, copy);
+                }
+            });
+        });
+    });
+};
+
+var exists = function (src, dst, callback) {
+    //测试某个路径下文件是否存在
+    fs.exists(dst, function (exists) {
+        if (exists) {//不存在
+            callback(src, dst);
+        } else {//存在
+            fs.mkdir(dst, function () {//创建目录
+                callback(src, dst)
+            })
+        }
+    })
+};
