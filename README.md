@@ -24,16 +24,17 @@
 | 18 | 18 - 网页显示浏览进度 | https://demo.94275.cn/scrollindicator/ |
 | 19 | 19 - Cool Layout | https://demo.94275.cn/coollayout/ |
 | 20 | 20 - 代码编辑器 | https://demo.94275.cn/codemirror/ |
-| 21 | 21 - CSS表盘 | https://demo.94275.cn/cssclock/ |
-| 22 | 22 - 颜色选择器1 | https://demo.94275.cn/ColorPicker/ |
-| 23 | 23 - 颜色选择器2 | https://demo.94275.cn/BubbleColorPicker/ |
-| 24 | 24 - 日历 | https://demo.94275.cn/calendar/ |
-| 25 | 25 - 炫酷背景特效 | https://demo.94275.cn/partiles/ |
-| 26 | 26 - 日出动画 | https://demo.94275.cn/sunrise/ |
-| 27 | 27 - 全屏图片切换效果 | https://demo.94275.cn/FullPageSlider/ |
-| 28 | 28 - 罗马时钟 | https://demo.94275.cn/RomanClock/ |
-| 29 | 29 - 吃什么 | https://demo.94275.cn/LunchDecision/ |
+| 21 | 21 - 颜色选择器1 | https://demo.94275.cn/ColorPicker/ |
+| 22 | 22 - 颜色选择器2 | https://demo.94275.cn/BubbleColorPicker/ |
+| 23 | 23 - 日历 | https://demo.94275.cn/calendar/ |
+| 24 | 24 - 炫酷背景特效 | https://demo.94275.cn/partiles/ |
+| 25 | 25 - 日出动画 | https://demo.94275.cn/sunrise/ |
+| 26 | 26 - 全屏图片切换效果 | https://demo.94275.cn/FullPageSlider/ |
+| 27 | 27 - 吃什么 | https://demo.94275.cn/LunchDecision/ |
+| 28 | 28 - CSS表盘 | https://demo.94275.cn/cssclock/ |
+| 29 | 29 - 罗马时钟 | https://demo.94275.cn/RomanClock/ |
 | 30 | 30 - 炫酷碎块时钟 | https://demo.94275.cn/NumberClock/ |
+| 31 | 31 - 输入文字动效 | https://demo.94275.cn/TypeAnimation/ |
 
 PS:
 
