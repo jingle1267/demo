@@ -146,7 +146,7 @@ function component() {
         for (i = 0; i < home_items.length; i++) {
             home_items[i].style = getLiStyle(i);
         }
-        console.log('home_items:', home_items);
+        // console.log('home_items:', home_items);
 
         var output = Mustache.render(data, {sliders: home_items});
         fs.writeFile('./src/index/index.html', output, function (err, written, buffer) {
@@ -182,15 +182,23 @@ function getLiStyle(position) {
 
     var style_size = style_arr.length;
 
-    var pos = Math.ceil(style_size / 4 * position) % style_size;
+    // var style_arr_tmp = [];
 
-    return style_arr[pos];
+    // for(i = 0; i < 3; i++) {
+    //     let random_index = (new Date().getDay() + i) % style_size;
+    //     style_arr_tmp.push(style_arr[random_index])
+    // }
+    // style_arr_tmp.push(style_arr);
+
+    let pos = new Date().getDay() + position % 4;
+
+    return style_arr[pos % style_arr.length];
 }
 
 var copy = function (src, dst) {
     //读取目录
     fs.readdir(src, function (err, paths) {
-        console.log(paths)
+        console.log(paths);
         if (err) {
             throw err;
         }
