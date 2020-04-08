@@ -36,6 +36,7 @@
 | 30 | 30 - 炫酷碎块时钟 | https://demo.94275.cn/NumberClock/ |
 | 31 | 31 - 输入文字动效 | https://demo.94275.cn/TypeAnimation/ |
 | 32 | 32 - 个人名片模板 | https://demo.94275.cn/CV/ |
+| 33 | 33 - 电影中黑客背景效果 | https://demo.94275.cn/hackbg/ |
 
 PS:
 
