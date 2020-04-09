@@ -144,6 +144,11 @@ module.exports = {
                         minimize: true
                     }
                 }
+            },
+            {
+                test:/\.js|jsx$/,
+                exclude: /(node_modules|bower_components)/,
+                use:['babel-loader']
             }
         ]
     }

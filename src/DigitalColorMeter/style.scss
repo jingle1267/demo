@@ -1,0 +1,116 @@
+$success: #197de4;
+$info: #35c7ff;
+$warning: #ff7635;
+$danger: #ff3f3f;
+$primary: #ececec;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background: $primary;
+}
+
+#cs {
+  display: none;
+}
+
+.main {
+  margin-bottom: 2em;
+}
+.container {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: calc(100% - 3em);
+  max-width: 600px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 6px;
+  img {
+    display: block;
+    width: 100%;
+    cursor: crosshair;
+    border: 5px solid #fff;
+    margin: 10px auto;
+  }
+  .preview {
+    user-select:none;
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    background: white;
+  }
+  /* Fake input */
+  #image-input {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #fake {
+    padding: 10px;
+    display: input-block;
+    overflow: hidden;
+    width: auto;
+    cursor: pointer;
+    font-size: 90%;
+    float: left;
+    background: #000;
+    background: $success;
+    color: $primary;
+    transition: all 500ms ease;
+    &:hover,
+    &:focus {
+      background: darken($success, 20%);
+      color: $primary;
+      transition: all 500ms ease;
+    }
+  }
+  @media (min-width: 768px) {
+    width: calc(100% - 10em);
+  }
+}
+.color {
+  display: inline-block;
+  width: calc(100% / 4 - 1.2em);
+  height: 80px;
+  margin: 0.5em;
+  font-size: 12px;
+  text-align: center;
+  line-height: 80px;
+  border: 1px solid $primary;
+  box-shadow: 0 3px 3px darken($primary, 20%);
+  &:last-child {
+    margin-right: 0;
+  }
+  span {
+    padding: 3px 5px;
+    background: black;
+    color: white;
+    animation: showColor 1s 500ms ease;
+  }
+  animation: showColor 500ms ease;
+  @keyframes showColor {
+    from {
+      width: 0;
+      opacity: 0;
+      height: 0;
+    }
+  }
+  @media (max-width: 768px) {
+    height: 60px;
+    line-height: 60px;
+    margin: 0.2em;
+    width: calc(100% / 4 - 0.567em);
+  }
+}
