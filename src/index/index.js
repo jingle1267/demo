@@ -27,41 +27,41 @@ import './js/jquery.qrcode.min.js'
 import './js/magic_bg.js'
 import './js/init.js'
 
-async function conponent() {
-    let ul = document.body.getElementsByTagName('ul')[0];
-    const context = require.context('../../src', true, /.*/);
-    let key_list = context.keys();
-
-    for (let i = 0; i < key_list.length; i++) {
-        let item = key_list[i];
-
-        let folder = item.replace('./', '');
-
-        if (folder === '') {
-            continue;
-        }
-        if (folder.indexOf('/') !== -1) {
-            continue;
-        }
-        // 生成的文件名称中不能包含小数点
-        if (folder.indexOf('.') !== -1) {
-            continue;
-        }
-        console.log('folder:', folder);
-        if (folder.indexOf('index') !== -1) {
-            continue;
-        }
-        if (folder === 'template') {
-            continue;
-        }
-        let li = document.createElement('li');
-        li.setAttribute('style', getLiStyle(i));
-        li.innerHTML = "<a href='" + item + "'>" + folder + "</a>";
-        ul.appendChild(li);
-    }
-
-    return ul;
-}
+// async function conponent() {
+//     let ul = document.body.getElementsByTagName('ul')[0];
+//     const context = require.context('../../src', true, /.*/);
+//     let key_list = context.keys();
+//
+//     for (let i = 0; i < key_list.length; i++) {
+//         let item = key_list[i];
+//
+//         let folder = item.replace('./', '');
+//
+//         if (folder === '') {
+//             continue;
+//         }
+//         if (folder.indexOf('/') !== -1) {
+//             continue;
+//         }
+//         // 生成的文件名称中不能包含小数点
+//         if (folder.indexOf('.') !== -1) {
+//             continue;
+//         }
+//         console.log('folder:', folder);
+//         if (folder.indexOf('index') !== -1) {
+//             continue;
+//         }
+//         if (folder === 'template') {
+//             continue;
+//         }
+//         let li = document.createElement('li');
+//         li.setAttribute('style', getLiStyle(i));
+//         li.innerHTML = "<a href='" + item + "'>" + folder + "</a>";
+//         ul.appendChild(li);
+//     }
+//
+//     return ul;
+// }
 
 /*
  * 获取 li 样式
