@@ -149,9 +149,17 @@ module.exports = {
                 test:/\.js|jsx$/,
                 exclude: /(node_modules|bower_components)/,
                 use:['babel-loader']
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
-    }
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ]
+    },
 };
 
 

@@ -38,6 +38,7 @@
 | 32 | 32 - 个人名片模板 | https://demo.94275.cn/CV/ |
 | 33 | 33 - 电影中黑客背景效果 | https://demo.94275.cn/hackbg/ |
 | 34 | 34 - 图片颜色提取器 | https://demo.94275.cn/DigitalColorMeter/ |
+| 35 | 35 - 马赛克文字效果 | https://demo.94275.cn/HelloWorld/ |
 
 PS:
 
