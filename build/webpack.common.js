@@ -147,7 +147,7 @@ module.exports = {
             },
             {
                 test:/\.js|jsx$/,
-                exclude: /(node_modules|bower_components|Weather)/,
+                exclude: /(node_modules|bower_components|Weather|CountDown)/,
                 use:['babel-loader']
             },
             {
