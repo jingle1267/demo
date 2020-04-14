@@ -41,6 +41,7 @@
 | 35 | 35 - 马赛克文字效果 | https://demo.94275.cn/HelloWorld/ |
 | 36 | 36 - 天气特效 | https://demo.94275.cn/Weather/ |
 | 37 | 37 - 倒计时提醒 | https://demo.94275.cn/CountDown/ |
+| 38 | 38 - 相框 | https://demo.94275.cn/PhotoFrame/ |
 
 PS:
 
