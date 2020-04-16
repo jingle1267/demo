@@ -23,6 +23,8 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 // const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const JavaScriptObfuscator = require('webpack-obfuscator');
 
+const copyWebpackPlugin = require('copy-webpack-plugin');
+
 require('./buildindex');
 
 const htmls = glob.sync('./src/**/*.html');
@@ -82,6 +84,10 @@ pluginsArray.push(new JavaScriptObfuscator({
     rotateUnicodeArray: true
 }, ['ColorPicker/color.js']));
 
+pluginsArray.push(new copyWebpackPlugin([{
+    from: path.resolve(__dirname, '../static'),
+    to: path.resolve(__dirname, '../dist')
+}]));
 
 module.exports = {
     entry: entrys,
