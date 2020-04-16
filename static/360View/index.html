@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>360View</title>
+</head>
+<body>
+
+<script src="./js/three.min.js"></script>
+<script src="./js/photo-sphere-viewer.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+        <div id="your-pano" class="col-md-12"></div>
+    </div>
+</div>
+
+<script>
+    var div = document.getElementById('your-pano');
+
+    var PSV = new PhotoSphereViewer({
+        // Panorama, given in base 64
+        panorama: './img/lower-res.jpg',
+        // Container
+        container: div,
+        // Deactivate the animation
+        time_anim: 3000,
+        // Display the navigation bar
+        navbar: true,
+        navbar_style: {
+            backgroundColor: 'rgba(58, 67, 77, 0.7)'
+        },
+
+        // Resize the panorama
+        size: {
+            //	width: '100%',
+            height: '' + (window.innerHeight * 0.92)
+        },
+        // No XMP data
+        //	usexmpdata: true
+        //	min_fov: 50,
+        zoom_level: 30,
+        loading_img: '',
+    });
+
+</script>
+
+<div style="display:none">
+    <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1260545070&web_id=1260545070"></script>
+</div>
+
+</body>
+</html>
