@@ -2,6 +2,9 @@
 
 入口地址：https://demo.94275.cn/
 
+支持编译和静态页面两种方式：src目录下demo会经过编译，static下demo不在编译。
+
+
 | 需要 | 效果名称 | 效果预览网址 |
 | -------- | ------------ | ------------ |
 | 01 | 01 - 圣诞树 | https://demo.94275.cn/ChristmasTree/ |
@@ -45,6 +48,7 @@
 | 39 | 39 - 卡宴3D | https://demo.94275.cn/3dEye/ |
 | 40 | 40 - 360View | https://demo.94275.cn/360View/ |
 | 41 | 41 - HTM转MD | https://demo.94275.cn/htm2md/ |
+| 42 | 42 - 图片高斯背景预览 | https://demo.94275.cn/GaussianBlur/ |
 
 PS:
 
