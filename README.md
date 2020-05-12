@@ -49,6 +49,7 @@
 | 40 | 40 - 360View | https://demo.94275.cn/360View/ |
 | 41 | 41 - HTM转MD | https://demo.94275.cn/htm2md/ |
 | 42 | 42 - 图片高斯背景预览 | https://demo.94275.cn/GaussianBlur/ |
+| 43 | 43 - 迈克杰克逊404页面 | https://demo.94275.cn/MJ404/ |
 
 PS:
 
