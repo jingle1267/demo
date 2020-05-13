@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>营销内容生成器</title>
+    <meta name="author" content="jingle1267">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./bootstrap4.4.1.css">
+    <style type="text/css">
+        textarea {
+            resize: none;
+            overflow: hidden;
+            width: 100%;
+            min-height: 50px;
+        }
+        lable {
+            font-weight: bold;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body onload="onload()">
+
+<div class="container">
+    <h1>营销号生成器</h1>
+    <div class="row">
+        <div class="col-sm-5 col-xs-12">
+            <form action="javascript:void(0);" autocomplete="off">
+                <div class="form-group">
+                    <lable for="subject">主体：</lable>
+                    <input type="text" id="subject" class="form-control" placeholder="桃子核" required/>
+                </div>
+                <div class="form-group">
+                    <lable for="event">事件：</lable>
+                    <input type="text" id="event" class="form-control" placeholder="不能吞下去" required/>
+                </div>
+                <div class="form-group">
+                    <lable for="event2">另一种说法：</lable>
+                    <input type="text" id="event2" class="form-control" placeholder="桃核太大了，吞下去容易噎着" required/>
+                </div>
+                <input type="submit" value="生成" class="btn btn-primary" onclick="generate()"/>
+            </form>
+        </div>
+        <div class="col-sm-7 col-xs-12">
+                <textarea id="result" onchange="auto_grow(this)" oninput="auto_grow(this)"
+                          placeholder="　　桃子核不能吞下去是怎么回事呢？桃子核相信大家都很熟悉，但是桃子核不能吞下去是怎么回事呢，下面就让小编带大家一起了解吧。&#013;&#010;　　桃子核不能吞下去，其实就是桃核太大了，吞下去容易噎着，大家可能会很惊讶桃子核怎么会不能吞下去呢？但事实就是这样，小编也感到非常惊讶。&#013;&#010;　　这就是关于桃子核不能吞下去的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！"></textarea>
+        </div>
+    </div>
+</div>
+<hr/>
+
+<div style="display:none">
+    <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1260545070&web_id=1260545070"></script>
+</div>
+
+</body>
+
+<script type="text/javascript">
+    function auto_grow(element) {
+        element.style.height = "5px";
+        element.style.height = (element.scrollHeight)+"px";
+    }
+
+    function onload() {
+        auto_grow(document.getElementById("result"));
+    }
+
+    function generate() {
+        subject = document.getElementById("subject").value;
+        event = document.getElementById("event").value;
+        event2 = document.getElementById("event2").value;
+        if (subject.length==0 || event.length==0 || event2.length==0)
+            return;
+        result = `　　${subject}${event}是怎么回事呢？${subject}相信大家都很熟悉，但是${subject}${event}是怎么回事呢，下面就让小编带大家一起了解吧。\r\n　　${subject}${event}，其实就是${event2}，大家可能会很惊讶${subject}怎么会${event}呢？但事实就是这样，小编也感到非常惊讶。\r\n　　这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`;
+        document.getElementById("result").value = result;
+        auto_grow(document.getElementById("result"));
+    }
+</script>
+
+</html>
