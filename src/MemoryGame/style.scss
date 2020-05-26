@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: black;
+  min-height: 100%;
+  font-family: "Arial", sans-serif;
+}
+
+.wrap {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  padding-bottom: 20px;
+}
+
+.game {
+  transform-style: preserve-3d;
+  perspective: 500px;
+  min-height: 100%;
+  height: 100%;
+}
+
+@mixin width($max){
+  @media (max-width: $max){
+    @content;
+  }
+}
+
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+
+.card {
+  float: left;
+  width: 16.66666%;
+  height: 25%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  @include width(800px){
+    width: 25%;
+    height: 16.666%;
+  }
+  .inside {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-style: preserve-3d;
+    transition: .4s ease-in-out;
+    background: white;
+
+    &.picked, &.matched {
+      transform: rotateY(180deg);
+    }
+    &.matched {
+      animation: 1s matchAnim ease-in-out;
+      animation-delay: .4s;
+    }
+  }
+
+  .front, .back {
+    border: 1px solid black;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      max-height: 100%;
+    }
+  }
+  .front {
+    transform: rotateY(-180deg);
+    @include width(800px){
+      padding: 5px;
+    }
+  }
+  .back{
+    transform: rotateX(0); // fix firefox backface-visibility.
+    @include width(800px){
+      padding: 10px;
+    }
+  }
+}
+
+.modal-overlay {
+  display: none;
+  background: rgba(0,0,0,.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  display: none;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  max-height: 90%;
+  max-width: 90%;
+  min-height: 380px;
+  margin: 0 auto;
+  background: white;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px 10px;
+  .winner {
+    font-size: 80px;
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 3px 0 black;
+    @include width(480px){
+      font-size: 60px;
+    }
+  }
+  .restart {
+    font-family: "Anton", sans-serif;
+    margin: 30px auto;
+    padding: 20px 30px;
+    display: block;
+    font-size: 30px;
+    border: none;
+    background: #4d4d4d;
+    background: linear-gradient(#4d4d4d, #222);
+    border: 1px solid #222;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 0px 1px 0 black;
+    cursor: pointer;
+    &:hover {
+      background: linear-gradient(#222, black);
+    }
+  }
+  .message {
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: #28afe6;
+      font-weight: bold;
+      &:hover {
+        $c: lighten(#28afe6, 10%);
+        color: $c;
+        border-bottom: 1px dotted $c;
+      }
+    }
+  }
+  .share-text {
+    text-align: center;
+    margin: 10px auto;
+  }
+  .social {
+    margin: 20px auto;
+    text-align: center;
+    li {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        line-height: 50px;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        &.facebook {
+          background: #3b5998;
+          &:hover {
+            background: lighten(#3b5998, 10%);
+          }
+        }
+        &.google {
+          background: #D34836;
+          &:hover {
+            background: lighten(#D34836, 10%);
+          }
+        }
+        &.twitter {
+          background: #4099FF;
+          &:hover {
+            background: lighten(#4099FF, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+  .disclaimer {
+    line-height: 20px;
+    font-size: 12px;
+    color: #727272;
+    text-align: center;
+    @include width(767px){
+      font-size: 8px;
+    }
+  }
+}
