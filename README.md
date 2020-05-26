@@ -52,6 +52,7 @@
 | 43 | 43 - 迈克杰克逊404页面 | https://demo.94275.cn/MJ404/ |
 | 44 | 44 - 内容营销工具 | https://demo.94275.cn/ContentMarketing/ |
 | 44 | 45 - 记忆小游戏 | https://demo.94275.cn/MemoryGame/ |
+| 44 | 45 - 记忆小游戏2 | https://demo.94275.cn/MemoryGame2/ |
 
 PS:
 
