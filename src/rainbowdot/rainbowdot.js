@@ -72,7 +72,7 @@ function connect(){
 		p1 = particles[i];
 		for (let j = i + 1; j < maxParticles; j++) {
 			p2 = particles[j];
-			currentDist = getDistance(p2.x, p1.x, p2.y, p1.y);
+			var currentDist = getDistance(p2.x, p1.x, p2.y, p1.y);
 			if (currentDist < ConnectionDist) {
 				ctx.beginPath();
 				ctx.moveTo(p1.x, p1.y);

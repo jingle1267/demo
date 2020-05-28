@@ -25,6 +25,8 @@ const JavaScriptObfuscator = require('webpack-obfuscator');
 
 const copyWebpackPlugin = require('copy-webpack-plugin');
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 require('./buildindex');
 
 const htmls = glob.sync('./src/**/*.html');
@@ -89,6 +91,10 @@ pluginsArray.push(new copyWebpackPlugin([{
     to: path.resolve(__dirname, '../dist')
 }]));
 
+pluginsArray.push(new MiniCssExtractPlugin({
+    filename: "./css/[name]-buddle.css"
+}));
+
 module.exports = {
     entry: entrys,
     plugins: pluginsArray,
@@ -104,7 +110,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: ["style-loader", MiniCssExtractPlugin.loader, "css-loader"]
             },
             // {
             //     test: /\.svg$/,
