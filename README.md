@@ -51,8 +51,11 @@
 | 42 | 42 - 图片高斯背景预览 | https://demo.94275.cn/GaussianBlur/ |
 | 43 | 43 - 迈克杰克逊404页面 | https://demo.94275.cn/MJ404/ |
 | 44 | 44 - 内容营销工具 | https://demo.94275.cn/ContentMarketing/ |
-| 44 | 45 - 记忆小游戏 | https://demo.94275.cn/MemoryGame/ |
-| 44 | 45 - 记忆小游戏2 | https://demo.94275.cn/MemoryGame2/ |
+| 45 | 45 - 记忆小游戏 | https://demo.94275.cn/MemoryGame/ |
+| 46 | 46 - 记忆小游戏2 | https://demo.94275.cn/MemoryGame2/ |
+| 47 | 47 - 跳一跳小游戏 | https://demo.94275.cn/jump/ |
+| 48 | 48 - CutCut小游戏 | https://demo.94275.cn/CutCut/ |
+| 49 | 49 - 超级玛丽小游戏 | https://demo.94275.cn/SuperMarie/ |
 
 PS:
 

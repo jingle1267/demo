@@ -124,7 +124,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
+                test: /\.s[ac]ss$/,
                 use: [{
                     loader: "style-loader" // 将 JS 字符串生成为 style 节点
                 }, {
