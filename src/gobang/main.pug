@@ -1,0 +1,26 @@
+section
+    .controls
+        .newGameCtrl
+            input(type="checkbox" id="check")
+            label.newMain(for="check")
+                .newMainText new
+            .newContainer
+                .newPlate
+                    .boardCellCircle(id="new-O")
+                .newPlate
+                    .boardCellCross(id="new-X")
+        .sizeCtrl
+            .newMain
+                .newMainText(id="scale-Up") +
+        .sizeCtrl
+            .newMain
+                .newMainText(id="scale-Down") -
+        .messages
+            .messagesContainer
+                .newMainText(id="message") try to get 5 in a row!
+    .board
+        - for (var x = 0; x < 15; x++)
+            .boardRow
+                - for (var y = 0; y < 15; y++)
+                    .boardCol
+                        .boardCell(id=x + "-" + y)

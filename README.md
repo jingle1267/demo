@@ -56,6 +56,7 @@
 | 47 | 47 - 跳一跳小游戏 | https://demo.94275.cn/jump/ |
 | 48 | 48 - CutCut小游戏 | https://demo.94275.cn/CutCut/ |
 | 49 | 49 - 超级玛丽小游戏 | https://demo.94275.cn/SuperMarie/ |
+| 50 | 50 - 五子棋小游戏 | https://demo.94275.cn/gobang/ |
 
 PS:
 
