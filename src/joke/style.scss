@@ -1,0 +1,255 @@
+$transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$time: 0.2s;
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: system-ui;
+  font-size: 125%;
+  --shift: 0;
+  perspective: 1300px;
+  font-family: 'Helvetica', sans-serif;
+  button {
+    position: absolute;
+    overflow: hidden;
+    min-width: 300px;
+    background: #000;
+    bottom: 7.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: 6px solid #000;
+    cursor: pointer;
+    outline: none;
+    z-index: 999;
+    font-weight: 500;
+    justify-content: center;
+    b {
+      font-weight: 500;
+      position: relative;
+      transition: 0.2s ease-in-out;
+      &:before {
+        content: 'B';
+        position: absolute;
+        top: -50px;
+        left: 2px;
+      }
+    }
+    &:hover {
+      background: #fff;
+      color: #000;
+      b {
+        transform: translateY(50px);
+      }
+    }
+    &:active, &:hover {
+      outline: none;
+    }
+    &.facepalm {
+      span {
+        &:before {
+          transform: rotateX(0deg);
+          transition-delay: 0.3s;
+        }
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+    span {
+      margin: 0;
+      transform: translateY(3px);
+      position: relative;
+      &:before {
+        content: '🤚';
+        position: absolute;
+        transform-style: preserve-3d;
+        transform: rotateX(90deg);
+        transition: 0.2s ease-in-out;
+        transition-delay: 0.3s;
+        transform-origin: bottom;
+        z-index: 2;
+      }
+      &:after {
+        content: '😖';
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+        z-index: 1;
+      }
+    }
+  }
+  #wrap {
+    position: relative;
+    width: 60%;
+    height: 500px;
+    transform: translateY(-100px);
+    .inner {
+      position: absolute;
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .inner {
+      padding: 20px;
+      box-sizing: border-box;
+      p {
+        opacity: 0;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background: #fff;
+          border-bottom: 6px solid #000;
+          border-right: 6px solid #000;
+          transform: rotate(45deg);
+          bottom: -17.5px;
+          left: 70px;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/383755/noun_tobacco%20pipe_66949.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          left: -150px;
+          bottom: -300px;
+          transform-origin: 10% 20%;
+          animation: speak 0.6s ease-in-out var(--wordCount);
+          @keyframes speak {
+            0% {
+              transform: rotate(0deg);
+            }
+            25% {
+              transform: rotate(5deg);
+            }
+            70% {
+              transform: rotate(0deg);
+            }
+            90% {
+              transform: rotate(5deg);
+            }
+            100% {
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+      p.words {
+        position: absolute;
+        font-size: 40px;
+        text-align: left;
+        min-width: 100%;
+        margin: 0px;
+        span {
+          display: inline-block;
+          &.word {
+            transform-style: preserve-3d;
+            animation: rotateIn $time $transition 1 forwards;
+            transform-origin: 50% 50% -20px;
+            transform: rotateX(95deg);
+            animation-play-state: paused;
+            &:nth-of-type(3n) {
+              animation: rotateIn2 $time $transition 1 forwards;
+              transform-origin: 0% 50% -50%;
+              transform: rotateY(100deg);
+              @keyframes rotateIn2 {
+                from {
+                  transform: rotateY(100deg);
+                }
+                to {
+                  transform: rotateY(0deg);
+                }
+              }
+            }
+            &:nth-of-type(5n) {
+              animation: rotateIn3 $time $transition 1 forwards;
+              transform-origin: 0% 50% 50%;
+              transform: rotateY(-100deg);
+              @keyframes rotateIn3 {
+                from {
+                  transform: rotateY(-100deg);
+                }
+                to {
+                  transform: rotateY(0deg);
+                }
+              }
+            }
+            &:nth-of-type(7n) {
+              animation: rotateIn4 $time ease-in-out 1 forwards;
+              transform: rotateX(-100deg);
+              @keyframes rotateIn4 {
+                from {
+                  transform: rotateX(-100deg);
+                }
+                to {
+                  transform: rotateX(0deg);
+                }
+              }
+            }
+          }
+        }
+        .whitespace {
+          display: inline-block;
+          width: 10px;
+        }
+        &.active {
+          opacity: 1;
+          background: #fff;
+          padding: 30px;
+          box-shadow: 0 0 0 6px #000;
+          border-radius: 10px;
+          b {
+            display: block;
+            margin-top: 20px;
+            span {
+              &.word {
+                @for $i from 1 through 100 {
+                  &:nth-of-type(#{$i}) {
+                    animation-delay: #{($i/24) + 2}s !important;
+                  }
+                }
+              }
+            }
+          }
+          span {
+            &.word {
+              animation-play-state: running;
+              backface-visibility: hidden;
+              @for $i from 1 through 100 {
+                &:nth-of-type(#{$i}) {
+                  animation-delay: #{($i/24) + 0.5}s !important;
+                }
+              }
+              @keyframes rotateIn {
+                from {
+                  transform: rotateX(95deg);
+                }
+                to {
+                  transform: rotateX(0deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
