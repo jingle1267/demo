@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Yellowtail', cursive;
+  background-color: #eee;
+  color: #777;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  width: 420px;
+  text-align: left;
+}
+
+$woodColor: saddlebrown;
+$sandColor: sandybrown;
+$speed: 300s;
+$glareClr1: rgba(255, 255, 255, 0.85);
+$glareClr2: rgba(0, 0, 0, 0.15);
+
+.container {
+  position: relative;
+  width: 60vh;
+  height: 60vh;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+.hourglass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotateGlass $speed ease-in-out infinite;
+
+  @keyframes rotateGlass {
+    0%, 90% {
+      transform: rotate(0deg);
+      filter: drop-shadow(2px 4px 8px $glareClr2);
+    }
+    100% {
+      transform: rotate(180deg);
+      filter: drop-shadow(-2px -4px 8px $glareClr2);
+    }
+  }
+}
+
+.wood {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $woodColor;
+  width: 60%;
+  height: 7.6%;
+  border-radius: 5px;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.15), rgba(255, 255, 255, 0.25));
+  background-size: 200%, 100%;
+  animation: woodGlr $speed infinite linear;
+
+  &:nth-child(1) {
+    top: 20px;
+  }
+  &:nth-child(2) {
+    bottom: 20px;
+  }
+
+  @keyframes woodGlr {
+    0%, 90% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
+
+}
+
+.top {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 50%;
+  height: 27.5%;
+  border: 2px solid $woodColor;
+  border-radius: 20px 20px 200px 200px;
+  transform: translateX(-50%) scale(1, 1.5);
+  transform-origin: bottom;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $sandColor;
+    animation: sandHeightTop $speed linear infinite;
+    filter: blur(3px);
+  }
+
+  @keyframes sandHeightTop {
+    0% {
+      height: 100%;
+    }
+    90%, 100% {
+      height: 0%;
+    }
+  }
+}
+
+.bottom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 27.5%;
+  border: 2px solid $woodColor;
+  border-radius: 200px 200px 20px 20px;
+  transform: translateX(-50%) scale(1, 1.5);
+  transform-origin: top;
+  overflow: hidden;
+
+  &_sand {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: $sandColor;
+    transform: scale(3, 1);
+    animation: sandTop $speed linear infinite;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      background-color: $sandColor;
+      transform: translateX(-50%) rotate(45deg);
+      animation: sandAngle $speed linear infinite;
+      filter: blur(2px);
+    }
+
+    @keyframes sandTop {
+      0% {
+        top: 135%;
+      }
+      90%, 100% {
+        top: 20%;
+      }
+    }
+
+    @keyframes sandAngle {
+      0% {
+        border-radius: 5px;
+      }
+      90%, 100% {
+        border-radius: 50px;
+      }
+    }
+  }
+
+}
+
+.mid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 6px;
+  border: solid $woodColor;
+  border-width: 0 3px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  background-color: $sandColor;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $sandColor;
+    width: 12px;
+    height: 14px;
+    border-radius: 50%;
+    filter: blur(3px);
+  }
+}
+
+.drop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $sandColor;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  filter: blur(3px);
+
+  --dropx: -50%;
+  animation: sandDrop $speed*0.010 ease-in infinite, dropVis $speed linear infinite;
+
+  @for $i from 0 through 9 {
+    &:nth-child(#{$i+1}) {
+      animation-delay: $speed * ($i / 1000), $speed;
+      --dropx: #{(($i * 130) % 200) - 100}%;
+    }
+  }
+
+  @keyframes sandDrop {
+    from {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    to {
+      top: calc(50% + 160px);
+      transform: translate(var(--dropx), -50%) scale(0.25);
+    }
+  }
+
+  @keyframes dropVis {
+    0% {
+      opacity: 0;
+    }
+    1%, 100% {
+      opacity: 1;
+    }
+  }
+}
+
+.glare {
+  position: absolute;
+  filter: blur(10px);
+  width: 120px;
+  height: 80px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0 0 15px 0;
+
+  &:nth-child(1) {
+    top: 19%;
+    left: 29%;
+    transform: rotate(70deg);
+    animation: glrClr1 $speed infinite linear;
+  }
+  &:nth-child(2) {
+    bottom: 19%;
+    left: 29%;
+    transform: rotate(110deg);
+    animation: glrClr1 $speed infinite linear;
+  }
+  &:nth-child(3) {
+    top: 19%;
+    right: 29%;
+    transform: rotate(-70deg);
+    animation: glrClr2 $speed infinite linear;
+  }
+  &:nth-child(4) {
+    bottom: 19%;
+    right: 29%;
+    transform: rotate(-110deg);
+    animation: glrClr2 $speed infinite linear;
+  }
+
+  @keyframes glrClr1 {
+    0%, 90% {
+      border-color: $glareClr1;
+    }
+    100% {
+      border-color: $glareClr2;
+    }
+  }
+
+  @keyframes glrClr2 {
+    0%, 90% {
+      border-color: $glareClr2;
+    }
+    100% {
+      border-color: $glareClr1;
+    }
+  }
+}
