@@ -59,7 +59,9 @@
 | 50 | 50 - 五子棋小游戏 | https://demo.94275.cn/gobang/ |
 | 51 | 51 - 视觉深度卡片 | https://demo.94275.cn/ParallaxDepthCards/ |
 | 52 | 52 - 笑话 | https://demo.94275.cn/joke/ |
-| 52 | 53 - 时间沙漏 | https://demo.94275.cn/Hourglass/ |
+| 53 | 53 - 时间沙漏 | https://demo.94275.cn/Hourglass/ |
+| 54 | 54 - SVG页面动画 | https://demo.94275.cn/AnimatedSvgScene/ |
+| 55 | 55 - 干净简洁的交互式网页 | https://demo.94275.cn/CleanSimpleWebsite/ |
 
 PS:
 
