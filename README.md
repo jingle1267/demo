@@ -62,6 +62,7 @@
 | 53 | 53 - 时间沙漏 | https://demo.94275.cn/Hourglass/ |
 | 54 | 54 - SVG页面动画 | https://demo.94275.cn/AnimatedSvgScene/ |
 | 55 | 55 - 干净简洁的交互式网页 | https://demo.94275.cn/CleanSimpleWebsite/ |
+| 56 | 56 - 音乐播放器 | https://demo.94275.cn/MusicPlayer/ |
 
 PS:
 

@@ -1,0 +1,1014 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700,800,900|Barlow:300,400,500,600,700,800,900&display=swap");
+
+$font-01: "Barlow", sans-serif;
+$font-02: "Barlow Condensed", sans-serif;
+
+$m-01: #e8e8f0;
+$m-02: #ffedc0;
+
+$cubic: cubic-bezier(0.51, -0.12, 0.25, 1.15);
+
+@mixin sm {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media screen and (max-height: 600px) {
+    @content;
+  }
+}
+
+.about {
+  $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
+  $transition: 0.6s $cubic;
+  $size: 40px;
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 10px;
+  width: $size;
+  height: $size;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transition: all 0.2s ease;
+
+  @include sm {
+    display: none;
+  }
+
+  .bg_links {
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(#000000, 0.2);
+    border-radius: 100%;
+    backdrop-filter: blur(5px);
+    position: absolute;
+  }
+
+  .logo {
+    width: $size;
+    height: $size;
+    z-index: 9;
+    background-image: url(https://rafaelavlucas.github.io/assets/codepen/logo_white.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 10px 7px;
+    opacity: 0.9;
+    transition: all 1s 0.2s ease;
+    bottom: 0;
+    right: 0;
+  }
+
+  .social {
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      display: flex;
+      transition: all 0.2s ease, background-color 0.4s ease;
+      opacity: 0;
+      border-radius: 100%;
+    }
+
+    &.portfolio {
+      transition: all 0.8s ease;
+
+      .icon {
+        background-image: url(https://rafaelavlucas.github.io/assets/codepen/link.svg);
+      }
+    }
+
+    &.dribbble {
+      transition: all 0.3s ease;
+      .icon {
+        background-image: url(https://rafaelavlucas.github.io/assets/codepen/dribbble.svg);
+      }
+    }
+
+    &.linkedin {
+      transition: all 0.8s ease;
+      .icon {
+        background-image: url(https://rafaelavlucas.github.io/assets/codepen/linkedin.svg);
+      }
+    }
+  }
+
+  &:hover {
+    width: 105px;
+    height: 105px;
+    transition: all $transition;
+
+    .logo {
+      opacity: 1;
+      transition: all 0.6s ease;
+    }
+
+    .social {
+      opacity: 1;
+
+      .icon {
+        opacity: 0.9;
+      }
+
+      &:hover {
+        background-size: 28px;
+        .icon {
+          background-size: 65%;
+          opacity: 1;
+        }
+      }
+
+      &.portfolio {
+        right: 0;
+        bottom: calc(100% - 40px);
+        transition: all 0.3s 0s $cubic;
+        .icon {
+          &:hover {
+            background-color: #698fb7;
+          }
+        }
+      }
+
+      &.dribbble {
+        bottom: 45%;
+        right: 45%;
+        transition: all 0.3s 0.15s $cubic;
+        .icon {
+          &:hover {
+            background-color: #ea4c89;
+          }
+        }
+      }
+
+      &.linkedin {
+        bottom: 0;
+        right: calc(100% - 40px);
+        transition: all 0.3s 0.25s $cubic;
+        .icon {
+          &:hover {
+            background-color: #0077b5;
+          }
+        }
+      }
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.wrapper {
+  display: grid;
+  width: 100%;
+  // height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: $font-01;
+  user-select: none;
+  letter-spacing: 0.8px;
+
+  @include xs {
+    height: 100% !important;
+    min-height: 600px;
+  }
+
+  .content {
+    width: 375px;
+    height: 760px;
+    margin: 60px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0px 30px 80px rgba(0, 0, 0, 0.3);
+
+    @include sm {
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      margin-bottom: 0px;
+      margin: 0px 0;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 24px;
+        height: 24px;
+        z-index: 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &:active {
+        &:before {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      &.shuffle {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/shuffle.svg");
+          opacity: 0.5;
+        }
+      }
+
+      &.prev {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/prev.svg");
+        }
+      }
+
+      &.play {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/play.svg");
+        }
+      }
+
+      &.next {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/next.svg");
+        }
+      }
+
+      &.repeat {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/repeat.svg");
+
+          opacity: 0.5;
+        }
+      }
+
+      &.bottomExpand {
+        background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/arrow-down.svg");
+      }
+
+      &.topExpand {
+        background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/arrow-down.svg");
+      }
+
+      &.menuHamburguer {
+        background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/menu.svg");
+      }
+
+      &.plus {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/plus.svg");
+        }
+      }
+
+      &.heart {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/heart.svg");
+        }
+
+        &.fave {
+          &:before {
+            animation: fave 0.3s ease;
+            background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/fave.svg");
+
+            @keyframes fave {
+              50% {
+                width: 40px;
+                height: 40px;
+              }
+
+              100% {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      &.close {
+        &:before {
+          background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/close.svg");
+        }
+      }
+    }
+
+    // Menu Bar & Music Groups
+    .topContent {
+      width: 100%;
+      max-height: 60px;
+      background-color: rgba($m-01, 0.5);
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      box-sizing: border-box;
+      backdrop-filter: blur(5px);
+      transition: all 0.4s 0.2s ease;
+
+      .menuBar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        .appName {
+          font-weight: 600;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+      }
+
+      .musicGroups {
+        width: 100%;
+        height: 80px;
+        margin-top: 25px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: all 0.4s ease;
+        visibility: hidden;
+        cursor: grab;
+
+        &:active {
+          cursor: grabbing;
+        }
+
+        .swiper-slide {
+          width: 150px;
+          height: 80px;
+          margin-right: 20px;
+
+          &:first-child {
+            margin-left: 20px;
+          }
+        }
+
+        .group {
+          position: relative;
+          border-radius: 4px;
+          cursor: pointer;
+          overflow: hidden;
+
+          &:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 30px;
+            //background-color: rgba($m-01, 0.5);
+            //backdrop-filter: blur(5px);
+            bottom: 0;
+            z-index: 2;
+          }
+
+          figure {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              filter: grayscale(0.2);
+            }
+
+            &:before {
+              position: absolute;
+              content: "";
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                              0deg,
+                              #252525 10%,
+                              transparent 100%
+              );
+              top: 0;
+              left: 0;
+              opacity: 0.8;
+              z-index: 1;
+            }
+          }
+
+          .titleGroup {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 3;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &.expand {
+        max-height: 190px;
+        transition: all 0.4s ease;
+
+        .topExpand {
+          transform: rotate(180deg);
+        }
+
+        .musicGroups {
+          opacity: 1;
+          transform: translateX(0px);
+          transition: all 0.4s 0.2s ease;
+          height: 100%;
+          visibility: visible;
+        }
+      }
+    }
+
+    // Album Covers
+    .middleContent {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .albumContent {
+        margin: 40px 0 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &.small {
+          width: 200px;
+
+          .albumCover {
+            width: 200px;
+            height: 200px;
+            transition: all 0.4s ease;
+          }
+        }
+
+        @include xs {
+          width: 200px;
+
+          .albumCover {
+            width: 200px;
+            height: 200px;
+            transition: all 0.4s ease;
+          }
+        }
+      }
+
+      .albumCover {
+        width: 280px;
+        height: 280px;
+        overflow: hidden;
+        box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        position: relative;
+        transition: all 0.4s 0.2s ease;
+        z-index: -1;
+
+        &:before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+                          145deg,
+                          rgba(white, 0.8) -20%,
+                          transparent 50%
+          );
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+        }
+      }
+
+      .artistName,
+      .songName {
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.04em;
+        z-index: 2;
+      }
+
+      .artistName {
+        text-transform: uppercase;
+        margin: 30px 0 10px 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .settings {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        transition: all 0s ease;
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+
+      .playlistsContent {
+        background-color: rgba($m-01, 0.6);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 0 40px 0;
+        box-sizing: border-box;
+        backdrop-filter: blur(10px);
+        transform: translateY(calc(-100% - 60px));
+        transition: all 0.8s cubic-bezier(0.8, -0.02, 0.25, 1);
+
+        .close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+
+        .playlist {
+          width: calc(100% - 40px);
+          height: 100px;
+          min-height: 60px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          align-items: center;
+          margin-bottom: 10px;
+          overflow: hidden;
+          position: relative;
+          border-radius: 8px;
+          z-index: 3;
+          transition: all 0.2s ease;
+          border: 0px solid white;
+          cursor: pointer;
+          opacity: 0.6;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .checkbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(white, 0.2);
+            z-index: 2;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border-radius: 4px;
+            //border: solid 1px rgba(white, 0.3);
+
+            &:before {
+              position: absolute;
+              content: "";
+              width: 0%;
+              height: 0%;
+              z-index: 1;
+              background-size: contain;
+              background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/check.svg");
+              opacity: 0;
+              transition: all 0.2s cubic-bezier(0.6, 0.02, 0.18, 1.25);
+            }
+          }
+
+          .playlistThumb {
+            width: 80px;
+            height: calc(100% - 20px);
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 1;
+            margin-left: 10px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .playlistBg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #5a5a5a;
+
+            img {
+              width: 120%;
+              height: 160%;
+              object-fit: cover;
+              filter: blur(8px) grayscale(1);
+              opacity: 0.6;
+            }
+
+            &:before {
+              position: absolute;
+              content: "";
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+              background: linear-gradient(
+                              145deg,
+                              rgba(black, 0.8) -20%,
+                              transparent 50%
+              );
+            }
+          }
+
+          .playlistTitle {
+            z-index: 1;
+            margin-left: 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+          }
+
+          &.selected {
+            //border: 2px solid white;
+            transition: all 0.2s ease;
+            opacity: 1;
+
+            .checkbox {
+              &:before {
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+              }
+            }
+
+            .playlistBg {
+              img {
+                filter: blur(8px) grayscale(0);
+                //opacity: 0.6;
+              }
+            }
+          }
+        }
+      }
+
+      .swiper-container {
+        height: 100%;
+      }
+
+      .swiper-slide {
+        width: 280px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.open {
+          transform: translateY(0);
+        }
+      }
+
+      .swiper-slide-active {
+        .settings {
+          transition: all 0.4s 0.4s ease;
+          opacity: 1;
+          transform: translateY(0px);
+        }
+
+        &.open {
+          .playlistsContent {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    // Player
+    .bottomContent {
+      width: 100%;
+      min-height: 100px;
+      max-height: 100px;
+      background-color: rgba($m-01, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      backdrop-filter: blur(5px);
+      transition: all 0.4s 0.2s ease;
+      padding: 5px 30px 20px 30px;
+      box-sizing: border-box;
+
+      .bottomExpand {
+        transform: rotate(-180deg);
+        opacity: 0.5;
+      }
+
+      .progressBar {
+        width: 100%;
+        visibility: hidden;
+        height: 0;
+        opacity: 0;
+        transition: all 0.4s ease;
+        transform: translateY(-60px);
+
+        @include sm {
+          box-sizing: border-box;
+        }
+
+        .timer {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+
+        .barTimer {
+          width: 100%;
+          height: 5px;
+          background-color: rgba(white, 0.4);
+          border-radius: 5px;
+          position: relative;
+
+          .progress {
+            position: absolute;
+            background-color: white;
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+          }
+        }
+      }
+
+      .player {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s 0.2s ease;
+
+        @include sm {
+        }
+
+        .btnPlay {
+          background-color: rgba(white, 0.2);
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.2s ease;
+
+          &.pause {
+            background-color: rgba(white, 0.4);
+
+            .play {
+              &:before {
+                background-image: url("https://www.rafaelalucas.com/dailyui/9/assets/pause.svg");
+              }
+            }
+          }
+        }
+      }
+
+      &.expand {
+        transition: all 0.4s ease;
+        min-height: 200px;
+        max-height: 200px;
+        padding: 10px 30px 20px 30px;
+
+        .bottomExpand {
+          transform: rotate(0deg);
+          opacity: 1;
+        }
+
+        .progressBar {
+          opacity: 1;
+          visibility: visible;
+          height: 50px;
+          transition: all 0.4s 0.2s ease;
+          transform: translateY(-10px);
+        }
+
+        .player {
+          @include sm {
+          }
+
+          .btnPlay {
+            width: 60px;
+            height: 60px;
+
+            .icon {
+              &:before {
+                width: 32px;
+                height: 32px;
+              }
+
+              &:active {
+                &:before {
+                  width: 38px;
+                  height: 38px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Album Covers Background
+    .albumBg {
+      position: absolute;
+      width: 100%;
+      max-height: 760px;
+      height: 100%;
+      top: 0;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      @include sm {
+        max-height: 100vh;
+      }
+
+      @include xs {
+        max-height: 100%;
+        height: 100%;
+        min-height: 600px;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: linear-gradient(
+                        180deg,
+                        rgba(black, 0.5) -40%,
+                        transparent 50%
+        );
+        z-index: 1;
+      }
+
+      &:after {
+        top: initial;
+        bottom: 0;
+        background: linear-gradient(
+                        0deg,
+                        rgba(black, 0.5) -60%,
+                        transparent 50%
+        );
+      }
+
+      .bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+          position: absolute;
+          content: "";
+          width: 150%;
+          height: 150%;
+          z-index: 2;
+          backdrop-filter: blur(10px);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+        }
+      }
+
+      &.animeBg {
+        .bg {
+          animation: animeBg 0.6s ease-in-out both;
+
+          @keyframes animeBg {
+            0% {
+              width: 100%;
+              height: 100%;
+            }
+
+            50% {
+              width: 130%;
+              height: 130%;
+            }
+
+            100% {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &:before {
+            animation: animeBg2 0.6s ease-in-out both;
+
+            @keyframes animeBg2 {
+              0% {
+                width: 150%;
+                height: 150%;
+                backdrop-filter: blur(10px);
+              }
+
+              50% {
+                backdrop-filter: blur(40px);
+              }
+
+              100% {
+                width: 150%;
+                height: 150%;
+                backdrop-filter: blur(10px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bodyBg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -2;
+    transition: all 0.4s ease;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  all: unset;
+}
