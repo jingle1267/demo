@@ -28,8 +28,8 @@
 | 19 | 19 - Cool Layout | https://demo.94275.cn/coollayout/ |
 | 20 | 20 - 代码编辑器 | https://demo.94275.cn/codemirror/ |
 | 21 | 21 - 颜色选择器1 | https://demo.94275.cn/ColorPicker/ |
-| 22 | 22 - 颜色选择器2 | https://demo.94275.cn/BubbleColorPicker/ |
-| 23 | 23 - 日历 | https://demo.94275.cn/calendar/ |
+| 22 | 22 - 颜色选择器2 | https://demo.94275.cn/ColorPicker2/ |
+| 23 | 23 - 颜色选择器3 | https://demo.94275.cn/BubbleColorPicker/ |
 | 24 | 24 - 炫酷背景特效 | https://demo.94275.cn/partiles/ |
 | 25 | 25 - 日出动画 | https://demo.94275.cn/sunrise/ |
 | 26 | 26 - 全屏图片切换效果 | https://demo.94275.cn/FullPageSlider/ |
@@ -63,6 +63,7 @@
 | 54 | 54 - SVG页面动画 | https://demo.94275.cn/AnimatedSvgScene/ |
 | 55 | 55 - 干净简洁的交互式网页 | https://demo.94275.cn/CleanSimpleWebsite/ |
 | 56 | 56 - 音乐播放器 | https://demo.94275.cn/MusicPlayer/ |
+| 57 | 57 - 日历 | https://demo.94275.cn/calendar/ |
 
 PS:
 
