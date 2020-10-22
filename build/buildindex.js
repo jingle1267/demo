@@ -76,7 +76,7 @@ function component() {
     }
 
     // 读取不需要编译页面
-    let static_path = './static'
+    let static_path = './static';
     var static_list = fs.readdirSync(static_path);
     if (static_list.length === 0) {
         context.exception('读取static目录下静态demo异常');
@@ -90,7 +90,7 @@ function component() {
 
                 let folder = dirname;
                 // 生成的文件名称中不能包含小数点
-                if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1) {
+                if (folder !== '' && folder.indexOf('/') === -1 && folder.indexOf('.') === -1 && folder !== 'images') {
                     // console.log(dirname);
                     let link_name = map.get('https://demo.94275.cn/' + folder + '/');
                     // console.log('link_name:', link_name);
@@ -106,6 +106,9 @@ function component() {
                     });
 
                     console.log('=== ' + './static/' + folder);
+                } else if (folder === 'images') {
+                    // ignore
+                    console.log('=== ignore images')
                 }
             }
             i++;

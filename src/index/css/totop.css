@@ -74,7 +74,7 @@ a:hover {
 }
 
 .suspension .consult {
-    background-image: url(../images/top-icon.png);
+    background-image: url('//demo.94275.cn/images/top-icon.png');
     background-repeat: no-repeat;
     background-position: center -1px;
     background-color: #0af;
@@ -192,16 +192,13 @@ a:hover {
 }
 
 .suspension .cart {
-    background-image: url(../images/top-icon.png);
     display: block;
     position: relative;
     width: 46px;
     height: 46px;
     margin-top: 10px;
     border: 1px solid #bcbcbc;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: #fff url('//demo.94275.cn/images/top-icon.png') no-repeat center;
 }
 
 .suspension a.cart:hover .pic {
@@ -209,14 +206,11 @@ a:hover {
 }
 
 .suspension .back-top {
-    background-image: url(../images/top-icon.png);
-    background-repeat: no-repeat;
-    background-position: center bottom;
     display: block;
     width: 46px;
     height: 46px;
     border: 1px solid #bcbcbc;
-    background-color: #fff;
+    background: #fff url('//demo.94275.cn/images/top-icon.png') no-repeat center bottom;
     -webkit-transition: all 0s ease-in-out;
     -moz-transition: all 0s ease-in-out;
     -o-transition: all 0s ease-in-out;
