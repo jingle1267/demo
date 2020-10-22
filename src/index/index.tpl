@@ -4,6 +4,7 @@
     <title>前端优秀动画效果</title>
     <meta name="author" content="jingle1267">
     <meta name="description" content="Christmas Tree">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div style="position: relative;">
