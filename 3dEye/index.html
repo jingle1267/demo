@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>panorama</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/3deye.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="content">
+    <h2>Move the car using your mouse!!</h2>
+    <div class="real_content">
+        <div id="myCar"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#myCar").vc3dEye({
+            imagePath: "images/panorama/",
+            totalImages: 36,
+            imageExtension: "png"
+        });
+    });
+</script>
+
+<div style="display:none">
+    <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1260545070&web_id=1260545070"></script>
+</div>
+
+</body>
+
+</html>

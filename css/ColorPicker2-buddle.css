@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap);
+.hex {
+    padding: 10px;
+    font-size: 2rem;
+    outline: none;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Roboto Mono', monospace;
+    border: 4px solid #d3d3d3;
+    border-radius: 4px;
+    outline: none;
+    color: #292929;
+}
+.hex::placeholder {
+    color: #cecece;
+}
+.hex.error {
+    border-color: #f00 !important;
+    color: #f00;
+}
+.hex:focus {
+    border-color: #777;
+}
+.palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+.color {
+    padding: 15px;
+    font-size: 0.7em;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: all 200ms ease;
+    border: 3px solid transparent;
+}
+.color:hover,
+.color.current {
+    transform: scale(1.2);
+    border-radius: 5px;
+    z-index: 1;
+    border: 3px solid;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -2px rgba(0,0,0,0.15);
+}
+.color:hover {
+    z-index: 2;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.generate {
+    padding: 20px;
+    font-size: 1.5rem;
+    background: #000;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.generate:hover {
+    background: rgba(0,0,0,0.8);
+}
+body {
+    padding: 30px;
+    overflow-x: hidden;
+    font-family: 'Roboto Mono', monospace;
+    padding-bottom: 100px;
+}
+

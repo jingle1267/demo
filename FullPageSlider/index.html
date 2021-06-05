@@ -1,0 +1,30 @@
+<!doctype html> <html> <head> <title>优秀动画效果</title> <meta name=author content=jingle1267> <meta name=description content=""> <meta name=viewport content="width=device-width,initial-scale=1"> <meta name=apple-mobile-web-app-capable content=yes> <link href=".././css/FullPageSlider-buddle.css?8b97fef7c3b331417ab0" rel="stylesheet"></head> <body> <div class=slider> <div class="slide slide-1"> <div class=slide-bg></div> <div class=slide-content> <div class=slide-image> <img src=/images/eagle.jpg> </div> <div class=slide-text> <p> They can hold their breath for five hours underwater. </p> </div> </div> </div> <div class="slide slide-2"> <div class=slide-bg></div> <div class=slide-content> <div class=slide-image> <img src=/images/fox.jpeg> </div> <div class=slide-text> <p> Foxes eat just about anything, including berries, worms, spiders and small animals such as mice and birds. </p> </div> </div> </div> <div class="slide slide-3"> <div class=slide-bg></div> <div class=slide-content> <div class=slide-image> <img src=/images/turtle.jpg> </div> <div class=slide-text> <p> The largest known kill by an eagle was a dulker deer weighing 37 kg - which was 7-8 times the weigth of the Martial Eagle that killed it. </p> </div> </div> </div> </div> <div class=slider-controls> <button type=button class=btn-slide-previous onclick=previousSlide()>&#10094</button> <button type=button class=btn-slide-next onclick=nextSlide()>&#10095</button> </div> <script> document.addEventListener("DOMContentLoaded", function(){
+        setTimeout(function() {
+            document.querySelector(".slide").classList.add("active");
+        }, 500)
+    });
+
+    function nextSlide() {
+        let currSlide = document.querySelector(".slide.active"),
+            nextSlide = currSlide.nextElementSibling;
+
+        currSlide.classList.remove("active");
+        if(nextSlide) {
+            nextSlide.classList.add("active");
+        } else {
+            document.querySelectorAll(".slide")[0].classList.add("active");
+        }
+    }
+
+    function previousSlide() {
+        let currSlide = document.querySelector(".slide.active"),
+            prevSlide = currSlide.previousElementSibling,
+            slideCount = document.querySelectorAll(".slide").length;
+
+        currSlide.classList.remove("active");
+        if(prevSlide) {
+            prevSlide.classList.add("active");
+        } else {
+            document.querySelectorAll(".slide")[slideCount - 1].classList.add("active");
+        }
+    } </script> <div style=display:none> <script src="https://s95.cnzz.com/z_stat.php?id=1260545070&web_id=1260545070"></script> </div> <script type="text/javascript" src="../FullPageSlider/FullPageSlider.bundle.8b97fef7c3b331417ab0.js?8b97fef7c3b331417ab0"></script></body> </html>

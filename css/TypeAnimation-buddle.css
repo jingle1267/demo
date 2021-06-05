@@ -1,0 +1,56 @@
+*{
+    font-family: Roboto;
+    font-weight:300;
+    -webkit-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+body{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    background:#455A64;
+}
+h1{
+    position:absolute;
+    top:50%;
+    transform:translateY(-70%);
+}
+h1:after{
+    content:"|";
+    -webkit-animation: blink 300ms ease-in-out infinite;
+    animation: blink 300ms ease-in-out infinite;
+    color:white;
+    font-size:40px;
+
+}
+@-webkit-keyframes blink{
+    0%{
+        opacity:0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity:1;
+    }
+}
+@keyframes blink{
+    0%{
+        opacity:0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity:1;
+    }
+}
